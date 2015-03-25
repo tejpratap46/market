@@ -15,7 +15,7 @@ if (! empty ( $apikey )) {
 	die ( "{\"status\":0," . "\"error\":\"invalid apikey\"}" );
 }
 
-if ($listid) {
+if ($listid && $customerid) {
 	echo "{";
 	$query1 = mysql_query ( "SELECT items FROM lists WHERE listid='$listid'" ) or die ( "{\"status\":0," . "\"error\":\"" . mysql_error () . "\"}" );
 	$qarray = mysql_fetch_array ( $query1 );

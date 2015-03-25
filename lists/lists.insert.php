@@ -40,7 +40,7 @@ if (strlen ( $customerid ) > 1 && (strlen ( $itemids ) > 1 || strlen ( $items ) 
 	$items = $info ['items'];
 	$query2 = "UPDATE customer SET listid = $listid WHERE username = '" . $customerid . "'";
 	$data2 = mysql_query ( $query2 ) or die ( "{\"status\":0," . "\"error\":\"" . mysql_error () . "\"}" );
-	echo "{";
+	echo "{\"status\":1,";
 	echo "\"username\":\"$customerid\",";
 	echo "\"listid\":\"$listid\",";
 	echo "\"items\":\"$items\"";
