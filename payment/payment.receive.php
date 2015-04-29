@@ -45,9 +45,16 @@ if ($id && $bankid) {
 			echo "\"tobankid\":\"" . $toid . "\",";
 			echo "\"frombankbalance\":\"" . $frombankbalance . "\",";
 			echo "\"tobankbalance\":\"" . $tobankbalance . "\",";
-			echo "\"lastupdate\":\"" . date ( "d-m-y H:i:s" ) . "\"";
+			echo "\"lastupdate\":\"" . date ( "d-m-y H:i:s" ) . "\",";
 			
 			$query = mysql_query ( "DELETE FROM `payment` WHERE id = '" . $id . "'" ) or die ( "{\"status\":0," . "\"error\":\"" . mysql_error () . "\"}" );
+			$query = mysql_query ( "INSERT INTO `payment_completed`(`id`, `fromid`, `toid`, `balance`, `listid`) VALUES ('$id','$fromid','$toid','$balance','')" ) or die ( "{\"status\":0," . "\"error\":\"" . mysql_error () . "\"}" );
+			$query = mysql_query ( "SELECT gcmid FROM customer WHERE bankid = '" . $fromid . "'" ) or die ( "{\"status\":0," . "\"error\":\"" . mysql_error () . "\"}" );
+			$qArray = mysql_fetch_array($query);
+			$gcmid = $qArray['gcmid'];
+			require(../'config.php'); // has current server location
+			$notiData = file_get_contents(Config::$DB_SERVER."notification/notification.send.php?gcmId=".$gcmid."&payId=".$id."&ammount=".$balance);
+			echo '"notification":'.$notiData;
 		} else {
 			echo "\"status\":0,";
 			echo "\"error\":\"cannot update\"";

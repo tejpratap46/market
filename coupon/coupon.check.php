@@ -20,7 +20,7 @@ if ($coupon && $list) {
 	$query = mysql_query ( "SELECT * FROM lists WHERE listid='" . $list . "'" ) or die ( "{\"status\":0," . "\"error\":\"" . mysql_error () . "\"}" );
 	if ($query) {
 		$query1 = mysql_query ( "SELECT * FROM coupon WHERE code='" . $coupon . "'" ) or die ( "{\"status\":0," . "\"error\":\"" . mysql_error () . "\"}" );
-		if ($query1) {
+		if (mysql_num_rows ( $query1 )) {
 			$list = mysql_fetch_array ( $query );
 			$coupon = mysql_fetch_array ( $query1 );
 			$xml = str_get_html ( $list ['items'] );
@@ -30,7 +30,7 @@ if ($coupon && $list) {
 			$listPrice = Array (); // to store price
 			$listname = Array (); // to store name
 			$listquantity = Array (); // to store qty
-			for($i = 0; $i < count ( $listItems ); $i ++) { // loop to all items 
+			for($i = 0; $i < count ( $listItems ); $i ++) { // loop to all items
 				$listids [$i] = $xml->find ( 'id', $i )->plaintext; // get current id
 				$listname [$i] = $xml->find ( 'name', $i )->plaintext; // get current name
 				$listquantity [$i] = $xml->find ( 'quantity', $i )->plaintext; // get current qty
@@ -42,8 +42,14 @@ if ($coupon && $list) {
 				}
 			}
 			for($i = 0; $i < count ( $listItems ); $i ++) { // now create new xml to store list
-				echo "<id>" . $listids [$i] . "</id><name>" . $listname [$i] . "</name><quantity>" . $listquantity [$i] . "</quantity><cost>" . $listPrice [$i] . "</cost>";
+				$newlist .= "<id>" . $listids [$i] . "</id><name>" . $listname [$i] . "</name><quantity>" . $listquantity [$i] . "</quantity><cost>" . $listPrice [$i] . "</cost>";
 			}
+			
+			echo "{";
+			echo '"status":1,';
+			echo '"listid":"' . $list . '",';
+			echo '"items":"' . $newlist . '"';
+			echo "}";
 			// // print_r($listitms);
 			// // $listItems = simplexml_load_string ( $list ['items'] );
 			// $couponItem = str_getcsv ( $coupon ['items'] );
@@ -60,6 +66,8 @@ if ($coupon && $list) {
 			// $finel = array_merge ( $intersect, $diff );
 			// // echo json_encode ( $finel );
 			// print_r ( $listPrice );
+		}else{
+			die ( "{\"status\":0," . "\"error\":\"No Coupon found for this code\"}" );
 		}
 	} else {
 		die ( "{\"status\":0," . "\"error\":\"invalid listid\"}" );

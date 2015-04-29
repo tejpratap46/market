@@ -1,7 +1,7 @@
 <?php
 error_reporting ( 0 );
 require ("../connection.php");
-require "../pagination.php";
+require "pagination.php";
 
 $itemid = $_GET ['itemid'];
 $itemname = $_GET ['itemname'];

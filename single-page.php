@@ -385,7 +385,7 @@ $info = mysql_fetch_array ( $query );
 					<!--Horizontal Tab-->
 					<div id="horizontalTab">
 						<ul>
-							<li><a href="#tab-1">Product overwiev</a></li>
+							<li><a href="#tab-1">Product overview</a></li>
 							<li><a href="#tab-2">Features</a></li>
 							<li><a href="#tab-3">Scan Here</a></li>
 						</ul>

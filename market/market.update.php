@@ -10,7 +10,6 @@ $itemspecification = $_GET ['itemspecification'];
 $itemcategory = $_GET ['itemcategory'];
 $itembrand = $_GET ['itembrand'];
 $quantity = $_GET ['quantity'];
-$type = $_GET ['type'];
 $imageurl = $_GET ['imageurl'];
 $itemlocation = $_GET ['itemlocation'];
 $tags = $_GET ['tags'];

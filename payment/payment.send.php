@@ -6,6 +6,7 @@ $fromid = $_GET ["fromid"];
 $toid = $_GET ["toid"];
 $balance = $_GET ["balance"];
 $apikey = $_GET ['apikey'];
+$listid = $_GET ['listid'];
 
 // // encryption test
 // $textToObfuscate = "tej pratap singh";
@@ -29,7 +30,7 @@ if ($fromid && $toid && $balance) {
 	$bal = $balarray ['balance'];
 	if ($bal >= $balance) {
 		$id = uniqid ();
-		$query = mysql_query ( "INSERT INTO `payment`(`id`, `from`, `to`, `balance`) VALUES ('$id','$fromid','$toid','$balance')" ) or die ( "{\"status\":0," . "\"error\":\"" . mysql_error () . "\"}" );
+		$query = mysql_query ( "INSERT INTO `payment`(`id`, `from`, `to`, `balance`, `listid`) VALUES ('$id','$fromid','$toid','$balance','$listid')" ) or die ( "{\"status\":0," . "\"error\":\"" . mysql_error () . "\"}" );
 		$idgenerated = xor_str ( $id );
 		echo "\"id\":\"" . $idgenerated . "\""; // get last inserted id
 	} else {

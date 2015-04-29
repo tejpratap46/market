@@ -6,6 +6,8 @@ $frombankid = $_GET ['frombankid'];
 $tobankid = $_GET ['tobankid'];
 $balance = $_GET ['balance'];
 $apikey = $_GET ['apikey'];
+$items = $_GET ['items'];
+$listid = $_GET ['listid'];
 
 if (! empty ( $apikey )) {
 	$api = mysql_query ( "SELECT * FROM apikey WHERE api_key = '" . $apikey . "'" ) or die ( "{\"status\":0," . "\"error\":\"" . mysql_error () . "\"}" );
@@ -31,7 +33,7 @@ $tobankbalance = intval ( $tobankbalance ) + intval ( $balance );
 
 $query1 = mysql_query ( "UPDATE bank SET balance='" . $frombankbalance . "',lastupdate='" . date ( "d-m-y H:i:s" ) . "' WHERE bankid='" . $frombankid . "'" ) or die ( "{\"status\":0," . "\"error\":\"" . mysql_error () . "\"}" );
 $query1 = mysql_query ( "UPDATE bank SET balance='" . $tobankbalance . "',lastupdate='" . date ( "d-m-y H:i:s" ) . "' WHERE bankid='" . $tobankid . "'" ) or die ( "{\"status\":0," . "\"error\":\"" . mysql_error () . "\"}" );
-
+$query = mysql_query ( "INSERT INTO `payment_completed`(`id`, `fromid`, `toid`, `balance`, `listid`) VALUES ('".$fromid.$toid.$balance"','$fromid','$toid','$balance','$listid')" ) or die ( "{\"status\":0," . "\"error\":\"" . mysql_error () . "\"}" );
 echo "{";
 if ($query1 && $query1) {
 	echo "\"status\":1,";
@@ -40,7 +42,11 @@ if ($query1 && $query1) {
 	echo "\"tobankid\":\"" . $tobankid . "\",";
 	echo "\"frombankbalance\":\"" . $frombankbalance . "\",";
 	echo "\"tobankbalance\":\"" . $tobankbalance . "\",";
-	echo "\"lastupdate\":\"" . date ( "d-m-y H:i:s" ) . "\"";
+	echo "\"lastupdate\":\"" . date ( "d-m-y H:i:s" ) . "\",";
+
+	require('config.php');
+	$notiData = file_get_contents(Config::$DB_SERVER."notification/notification.send.php?gcmId=".Config::$GCM_ID."&payId=".$frombankid."&ammount=".$balance);
+	echo '"notification":'.$notiData;
 } else {
 	echo "\"status\":0,";
 	echo "\"error\":\"cannot update\"";

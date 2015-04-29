@@ -1,26 +1,6 @@
 <?php
 /*
  * PHP Class TSP
- *
- *
- * Author: 	Ross Scrivener
- * WWW: 		http://scrivna.com
- * Description:
- * This class is a calculator for the common "Travelling salesman" maths problem.
- *
- *
- * It takes any number of coordinates and brute force calculates the shortest distance to travel to all those points.
- * It doesn't do anything clever like forcing a starting / ending point, however this could easily be implemented.
- *
- *
- * Date: 		2008-03-15
- *
- *
- * Feel free to modify this script and use as you please, a little note saying original author would
- * be nice and if you do use it, drop me a line, i'd like to see what you've done with it.
- *
- *
- * Please mail me any bug fixes etc. so i can update this script for others
  */
 class TSP {
 	private $locations = array (); // all locations to visit
@@ -38,7 +18,7 @@ class TSP {
 				'latitude' => $latitude 
 		);
 	}
-	// the main function that des the calculations
+	// the main function that does the calculations
 	public function compute() {
 		$locations = $this->locations;
 		
@@ -90,6 +70,7 @@ class TSP {
 			return $miles;
 		}
 	}
+	
 	// work out all the possible different permutations of an array of data
 	private function array_permutations($items, $perms = array( )) {
 		static $all_permutations;

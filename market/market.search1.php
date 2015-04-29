@@ -1,7 +1,7 @@
 <?php
 error_reporting ( 0 );
 require ("../connection.php");
-require "../pagination.php";
+require "pagination.php";
 
 $q = $_GET ['q'];
 $apikey = $_GET ['apikey'];

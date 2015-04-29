@@ -22,8 +22,8 @@ function xor_str($to_enc) {
 }
 
 // encryption test
-$textToObfuscate = "tej pratap singh";
-$obfuscatedText = xor_this ( $textToObfuscate );
-$restoredText = xor_this ( $obfuscatedText );
+$textToObfuscate = "4644a?b89bc1b";
+$obfuscatedText = xor_str ( $textToObfuscate );
+$restoredText = xor_str ( $obfuscatedText );
 die ( "E : " . $obfuscatedText . " D : " . $restoredText );
 ?>
