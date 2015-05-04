@@ -1,6 +1,6 @@
 <?php
 require '../connection.php';
-$username = $_GET ['u'];
+$username = $_GET ['username'];
 if ($username) {
 	$query = mysql_query ( "SELECT `items` FROM `cart` WHERE `username`='$username'" );
 	if ($query) {

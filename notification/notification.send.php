@@ -1,5 +1,5 @@
 <?php
-if ($_GET ['id'] && $_GET['payId'] && $_GET['ammount']) {
+if ($_GET ['gcmId'] && $_GET['payId'] && $_GET['ammount']) {
 	// API access key from Google API's Console
 	define ( 'API_ACCESS_KEY', 'AIzaSyCxTsUP3saX-BUPA2KNQKdsyMmUSGwYfQI' );
 	$registrationIds = array (
@@ -9,8 +9,8 @@ if ($_GET ['id'] && $_GET['payId'] && $_GET['ammount']) {
 	$msg = array (
 			'message' => 'Payment Completed',
 			'title' => 'Payment Completed for Pay Id '.$_GET['payId'].' For Rs. '.$_GET['ammount'],
-			'subtitle' => 'This is a subtitle. subtitle',
-			'tickerText' => 'Ticker text here...Ticker text here...Ticker text here',
+			'payid' => $_GET['payId'],
+			'ammount' => $_GET['ammount'],
 			'vibrate' => true,
 			'sound' => true
 	);

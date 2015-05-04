@@ -14,8 +14,8 @@ session_start();
 <link href="web/css/style.css" rel='stylesheet' type='text/css' />
 <!-- Custom Theme files -->
 <!---- start-smoth-scrolling---->
-<script type="text/javascript" src="/js/move-top.js"></script>
-<script type="text/javascript" src="/js/easing.js"></script>
+<script type="text/javascript" src="web/js/move-top.js"></script>
+<script type="text/javascript" src="web/js/easing.js"></script>
 <script type="text/javascript">
 			jQuery(document).ready(function($) {
 				$(".scroll").click(function(event){		

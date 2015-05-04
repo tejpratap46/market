@@ -1,5 +1,5 @@
 <?php
-// error_reporting ( 0 );
+error_reporting ( 0 );
 require ("../connection.php");
 ob_start();
 require 'lists.check.php';

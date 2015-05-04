@@ -2,8 +2,8 @@
 // error_reporting ( 0 );
 require '../connection.php';
 
-$username = $_GET ['u'];
-$pos = $_GET ['pos'];
+$username = $_GET ['username'];
+$pos = $_GET ['position'];
 
 if ($username && strlen ( $pos )) {
 	$query = mysql_query ( "SELECT * FROM cart WHERE username = '" . $username . "'" ) or die ( "Error " . mysql_error () );

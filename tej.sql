@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 26, 2015 at 11:19 AM
+-- Generation Time: May 02, 2015 at 01:37 PM
 -- Server version: 5.5.25a
 -- PHP Version: 5.4.4
 
@@ -46,6 +46,7 @@ INSERT INTO `apikey` (`api_key`) VALUES
 
 CREATE TABLE IF NOT EXISTS `bank` (
   `bankid` varchar(20) NOT NULL,
+  `username` varchar(100) NOT NULL,
   `name` varchar(20) NOT NULL,
   `balance` varchar(20) NOT NULL,
   `lastupdate` varchar(20) NOT NULL,
@@ -58,14 +59,14 @@ CREATE TABLE IF NOT EXISTS `bank` (
 -- Dumping data for table `bank`
 --
 
-INSERT INTO `bank` (`bankid`, `name`, `balance`, `lastupdate`, `email`, `timestamp`) VALUES
-('123456789', 'Tej Pratap', '1550000', '22-11-14 20:41:46', 'tejpratap36@gmail.co', '0000-00-00 00:00:00'),
-('1235468562', 'Tej Pratap', '0', '31-01-15 19:15:45', 'tejpratap36@gmail.co', '0000-00-00 00:00:00'),
-('152364485', 'Tej Pratap Singh', '0', '09-12-14 14:10:52', 'tps@xyz.com', '0000-00-00 00:00:00'),
-('1572962589', 'Shubham', '0', '18-03-15 06:24:22', 'shubham@gmail.com', '0000-00-00 00:00:00'),
-('7536925174', 'tej', '10000', '23-10-14 14:52:31', 'tejpratap36@gmail.co', '0000-00-00 00:00:00'),
-('987654321', 'Tej', '89500', '22-11-14 20:41:46', 'tejpratap66@gmail.co', '0000-00-00 00:00:00'),
-('asd', 'asd', '0', '10-12-14 16:28:47', 'asd', '0000-00-00 00:00:00');
+INSERT INTO `bank` (`bankid`, `username`, `name`, `balance`, `lastupdate`, `email`, `timestamp`) VALUES
+('123456789', '', 'Tej Pratap', '1550000', '22-11-14 20:41:46', 'tejpratap36@gmail.co', '0000-00-00 00:00:00'),
+('1235468562', '', 'Tej Pratap', '0', '31-01-15 19:15:45', 'tejpratap36@gmail.co', '0000-00-00 00:00:00'),
+('152364485', '', 'Tej Pratap Singh', '0', '09-12-14 14:10:52', 'tps@xyz.com', '0000-00-00 00:00:00'),
+('1572962589', '', 'Shubham', '0', '18-03-15 06:24:22', 'shubham@gmail.com', '0000-00-00 00:00:00'),
+('7536925174', '', 'tej', '10000', '23-10-14 14:52:31', 'tejpratap36@gmail.co', '0000-00-00 00:00:00'),
+('987654321', '', 'Tej', '89500', '22-11-14 20:41:46', 'tejpratap66@gmail.co', '0000-00-00 00:00:00'),
+('asd', '', 'asd', '0', '10-12-14 16:28:47', 'asd', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -121,6 +122,7 @@ CREATE TABLE IF NOT EXISTS `customer` (
   `username` varchar(20) NOT NULL,
   `password` varchar(20) NOT NULL,
   `bankid` varchar(20) NOT NULL,
+  `gcmid` text NOT NULL,
   `listid` varchar(10) NOT NULL,
   `purchase` int(50) NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -132,13 +134,13 @@ CREATE TABLE IF NOT EXISTS `customer` (
 -- Dumping data for table `customer`
 --
 
-INSERT INTO `customer` (`name`, `email`, `username`, `password`, `bankid`, `listid`, `purchase`, `timestamp`) VALUES
-('asd', 'asd', 'asd', 'asd', 'asd', '', 0, '0000-00-00 00:00:00'),
-('Shubham', 'shubham@gmail.com', 'Shubham', '123456789', '1572962589', '152346993', 0, '0000-00-00 00:00:00'),
-('Tej Pratap', 'tejpratap36@gmail.com', 'tejpr', '9860637720', '1235468562', '', 0, '0000-00-00 00:00:00'),
-('Tej Pratap Singh', 'tps@xyz.com', 'tejpratap', '9860637720', '152364485', '', 0, '0000-00-00 00:00:00'),
-('Tej Pratap', 'tejpratap36@gmail.com', 'tejpratapsingh', '9860637720', '123456789', '152346990', 0, '0000-00-00 00:00:00'),
-('Tej', 'tejpratap66@gmail.co', 'tps', '9860637720', '987654321', '152346950', 0, '0000-00-00 00:00:00');
+INSERT INTO `customer` (`name`, `email`, `username`, `password`, `bankid`, `gcmid`, `listid`, `purchase`, `timestamp`) VALUES
+('asd', 'asd', 'asd', 'asd', 'asd', '', '', 0, '0000-00-00 00:00:00'),
+('Shubham', 'shubham@gmail.com', 'Shubham', '123456789', '1572962589', '', '152346993', 0, '0000-00-00 00:00:00'),
+('Tej Pratap', 'tejpratap36@gmail.com', 'tejpr', '9860637720', '1235468562', '', '', 0, '0000-00-00 00:00:00'),
+('Tej Pratap Singh', 'tps@xyz.com', 'tejpratap', '9860637720', '152364485', '', '', 0, '0000-00-00 00:00:00'),
+('Tej Pratap', 'tejpratap36@gmail.com', 'tejpratapsingh', '9860637720', '123456789', '', '152346990', 0, '0000-00-00 00:00:00'),
+('Tej', 'tejpratap66@gmail.co', 'tps', '9860637720', '987654321', '', '152346950', 0, '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -248,6 +250,21 @@ INSERT INTO `location` (`code`, `latlong`, `pixelloc`, `timestamp`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `loyalty`
+--
+
+CREATE TABLE IF NOT EXISTS `loyalty` (
+  `username` varchar(100) NOT NULL,
+  `total_purchases` varchar(10) NOT NULL DEFAULT '0',
+  `total_ammount` varchar(100) NOT NULL DEFAULT '0',
+  `points` varchar(10) NOT NULL DEFAULT '0',
+  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`username`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `maps`
 --
 
@@ -326,17 +343,7 @@ CREATE TABLE IF NOT EXISTS `payment` (
 --
 
 INSERT INTO `payment` (`id`, `from`, `to`, `balance`, `listid`, `timestamp`) VALUES
-('5470d9e00aa0d', '987654321', '123456789', 500, '', '0000-00-00 00:00:00'),
-('5470d9e7b4ac9', '987654321', '123456789', 500, '', '0000-00-00 00:00:00'),
-('5470d9eb25aca', '987654321', '123456789', 500, '', '0000-00-00 00:00:00'),
-('5470dd6f097bd', '987654321', '123456789', 500, '', '0000-00-00 00:00:00'),
-('5470ddec4a14c', '987654321', '123456789', 5000, '', '0000-00-00 00:00:00'),
-('55351092e0256', '987654321', '123456789', 100, '', '0000-00-00 00:00:00'),
-('55351118d7383', '987654321', '123456789', 100, '', '0000-00-00 00:00:00'),
-('55351a489f306', '123456789', '0000000000', 96987, '', '0000-00-00 00:00:00'),
-('55351c3689550', '123456789', '0000000000', 96987, '', '0000-00-00 00:00:00'),
-('55351c9dd78df', '123456789', '0000000000', 96987, '', '0000-00-00 00:00:00'),
-('55351e03d1b35', '123456789', '0000000000', 96987, '', '0000-00-00 00:00:00');
+('106205544aa08aba091.31804240', '123456789', '0000000000', 46288, '', '2015-05-02 10:42:16');
 
 -- --------------------------------------------------------
 

@@ -7,7 +7,7 @@ $username = $_GET ['username'];
 $email = $_GET ['email'];
 $password = $_GET ['password'];
 $bankid = $_GET ['bankid'];
-$gcmId = $_GET['gcmid'];
+$gcmId = $_GET ['gcmid'];
 $apikey = $_GET ['apikey'];
 
 if (! empty ( $apikey )) {
@@ -23,9 +23,11 @@ if (strlen ( $name ) < 1 || strlen ( $username ) < 1 || strlen ( $email ) < 1 ||
 	die ( "{\"status\":0," . "\"error\":\"enter all fields ['name','username','email','password','bankid','apikey']\"}" );
 }
 
-$query = "INSERT INTO customer (name,username,email,password,bankid) VALUES ('$name','$username','$email','$password','$bankid')";
+$query = "INSERT INTO customer (name,username,email,password,bankid,gcmid) VALUES ('$name','$username','$email','$password','$bankid','$gcmId')";
 $data = mysql_query ( $query ) or die ( "{\"status\":0," . "\"error\":\"" . mysql_error () . "\"}" );
-$bank = mysql_query ( "INSERT INTO bank (name,bankid,email,balance,lastupdate,gcmid) VALUES ('$name','$bankid','$email','0','" . date ( "d-m-y H:i:s" ) . "','$gcmId')" ) or die ( "{\"status\":0," . "\"error\":\"" . mysql_error () . "\"}" );
+$bank = mysql_query ( "INSERT INTO bank (name,bankid,username,email,balance,lastupdate) VALUES ('$name','$bankid','$username','$email','0','" . date ( "d-m-y H:i:s" ) . "')" ) or die ( "{\"status\":0," . "\"error\":\"" . mysql_error () . "\"}" );
+$loyalty = mysql_query ( "INSERT INTO `loyalty`(`username`) VALUES ('$username')" ) or die ( "{\"status\":0," . "\"error\":\"" . mysql_error () . "\"}" );
+
 echo "{";
 if ($data) {
 	echo "\"status\":1,";

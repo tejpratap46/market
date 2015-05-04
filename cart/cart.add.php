@@ -2,8 +2,8 @@
 error_reporting ( 0 );
 require '../connection.php';
 
-$username = $_GET ['u'];
-$item = $_GET ['i'];
+$username = $_GET ['username'];
+$item = $_GET ['items'];
 
 if ($username && $item) {
 	$query = mysql_query ( "SELECT * FROM cart WHERE username = '" . $username . "'" );

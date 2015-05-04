@@ -3,7 +3,7 @@ error_reporting ( 0 );
 require ("../connection.php");
 
 $apikey = $_GET ['apikey'];
-$index = $_GET ['index'];
+$code = $_GET ['code'];
 
 if (! empty ( $apikey )) {
 	$api = mysql_query ( "SELECT * FROM apikey WHERE api_key = '" . $apikey . "'" ) or die ( "{\"status\":0," . "\"error\":\"" . mysql_error () . "\"}" );
@@ -14,7 +14,7 @@ if (! empty ( $apikey )) {
 	die ( "{\"status\":0," . "\"error\":\"invalid apikey\"}" );
 }
 
-$query = mysql_query ( "DELETE FROM featured WHERE index = '" . $index . "'" ) or die ( "{\"status\":0," . "\"error\":\"" . mysql_error () . "\"}" );
+$query = mysql_query ( "DELETE FROM featured WHERE code = '" . $code . "'" ) or die ( "{\"status\":0," . "\"error\":\"" . mysql_error () . "\"}" );
 
 if ($query) {
 	echo "{";
@@ -24,7 +24,7 @@ if ($query) {
 } else {
 	echo "{";
 	echo "\"status\":0,";
-	echo "\"error\":\"enter index\"";
+	echo "\"error\":\"enter code\"";
 	echo "}";
 }
 ?>

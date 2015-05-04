@@ -6,6 +6,7 @@ $name = $_GET ['name'];
 $username = $_GET ['username'];
 $email = $_GET ['email'];
 $bankid = $_GET ['bankid'];
+$gcmid = $_GET ['gcmid'];
 $password = $_GET ['password'];
 $apikey = $_GET ['apikey'];
 
@@ -30,6 +31,10 @@ if (strlen ( $email ) > 1) {
 }
 if (strlen ( $password ) > 1) {
 	$query = mysql_query ( "UPDATE customer SET password='" . $password . "' WHERE username='$username'" ) or die ( "{\"status\":0," . "\"error\":\"" . mysql_error () . "\"}" );
+}
+
+if (strlen ( $gcmid ) > 1) {
+	$query = mysql_query ( "UPDATE customer SET gcmid='" . $gcmid . "' WHERE username='$username'" ) or die ( "{\"status\":0," . "\"error\":\"" . mysql_error () . "\"}" );
 }
 
 $query = mysql_query ( "SELECT * FROM customer WHERE username='" . $username . "'" ) or die ( "{\"status\":0," . "\"error\":\"" . mysql_error () . "\"}" );

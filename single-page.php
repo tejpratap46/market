@@ -24,7 +24,7 @@ $info = mysql_fetch_array ( $query );
 <!-- Custom Theme files -->
 <link href="web/css/style.css" rel='stylesheet' type='text/css' />
 <!-- Custom Theme files -->
-<!---- start-smoth-scrolling---->
+<!-- start-smoth-scrolling-->
 <script type="text/javascript" src="web/js/move-top.js"></script>
 <script type="text/javascript" src="web/js/easing.js"></script>
 <script type="text/javascript">
@@ -35,15 +35,15 @@ $info = mysql_fetch_array ( $query );
 		});
 	});
 </script>
-<!---- start-smoth-scrolling---->
+<!-- start-smoth-scrolling-->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-<!----webfonts--->
+<!--webfonts-->
 <link
 	href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic'
 	rel='stylesheet' type='text/css'>
-<!---//webfonts--->
-<!----start-top-nav-script---->
+<!--//webfonts-->
+<!--start-top-nav-script-->
 <script>
 			$(function() {
 				var pull 		= $('#pull');
@@ -61,12 +61,12 @@ $info = mysql_fetch_array ( $query );
 	    		});
 			});
 		</script>
-<!----//End-top-nav-script---->
+<!--//End-top-nav-script-->
 </head>
 <body>
-	<!----container---->
+	<!--container-->
 	<div class="container">
-		<!----top-header---->
+		<!--top-header-->
 		<div class="top-header">
 			<div class="logo">
 				<a href="index.php"><img src="web/images/logo.png" title="barndlogo" /></a>
@@ -111,10 +111,10 @@ $info = mysql_fetch_array ( $query );
 			</div>
 			<div class="clearfix"></div>
 		</div>
-		<!----//top-header---->
-		<!---top-header-nav---->
+		<!--//top-header-->
+		<!--top-header-nav-->
 		<div class="top-header-nav">
-			<!----start-top-nav---->
+			<!--start-top-nav-->
 			<nav class="top-nav main-menu">
 				<ul class="top-nav">
 					<li><a href="products.php">PRODUCTS </a><span> </span></li>
@@ -127,23 +127,23 @@ $info = mysql_fetch_array ( $query );
 				<a href="#" id="pull"><img src="web/images/nav-icon.png"
 					title="menu" /></a>
 			</nav>
-			<!----End-top-nav---->
-			<!---top-header-search-box--->
+			<!--End-top-nav-->
+			<!--top-header-search-box-->
 			<div class="top-header-search-box">
 				<form action="search.php" method="get">
 					<input type="text" placeholder="Search" name="q" required
 						maxlength="22"> <input type="submit" value=" ">
 				</form>
 			</div>
-			<!---top-header-search-box--->
+			<!--top-header-search-box-->
 			<div class="clearfix"></div>
 		</div>
 	</div>
-	<!--//top-header-nav---->
-	<!----content---->
+	<!--//top-header-nav-->
+	<!--content-->
 	<div class="content">
 		<div class="container">
-			<!--- products ---->
+			<!-- products -->
 			<div class="products">
 				<div class="product-filter">
 					<h1>
@@ -171,7 +171,7 @@ $info = mysql_fetch_array ( $query );
 							?>
 							<div class="clearfix"></div>
 						</div>
-						<!---->
+						<!-->
 						<div class="col-md-6 product-filter-grid1-brands-col2">
 							<div class="producst-cate-grids">
 								<?php
@@ -193,7 +193,7 @@ $info = mysql_fetch_array ( $query );
 								?>
 							</div>
 						</div>
-						<!---->
+						<!-->
 						<div class="product-filter-grid1-brands-col3">
 							<div class="products-colors">
 								<h3>SELECT COLOR</h3>
@@ -226,8 +226,8 @@ $info = mysql_fetch_array ( $query );
 			</div>
 		</div>
 		<div class="clearfix"></div>
-		<!-- //products ---->
-		<!----product-details--->
+		<!-- //products -->
+		<!--product-details-->
 
 		<div class="product-details">
 			<div class="container">
@@ -237,7 +237,7 @@ $info = mysql_fetch_array ( $query );
 						<p><?php echo $info['itemname'];?></p>
 					</div>
 					<div class="col-md-4 product-details-row1-col1">
-						<!----details-product-slider--->
+						<!--details-product-slider-->
 						<!-- Include the Etalage files -->
 						<link rel="stylesheet" href="web/css/etalage.css">
 						<script src="web/js/jquery.etalage.min.js"></script>
@@ -262,7 +262,7 @@ $info = mysql_fetch_array ( $query );
 		
 							});
 						</script>
-						<!----//details-product-slider--->
+						<!--//details-product-slider-->
 						<div class="details-left">
 							<div class="details-left-slider">
 								<ul id="etalage" class="center-cropped">
@@ -378,9 +378,9 @@ $info = mysql_fetch_array ( $query );
 						</div>
 					</div>
 					<div class="clearfix"></div>
-					<!--//product-details--->
+					<!--//product-details-->
 				</div>
-				<!---- product-details ---->
+				<!-- product-details -->
 				<div class="product-tabs">
 					<!--Horizontal Tab-->
 					<div id="horizontalTab">
@@ -458,12 +458,12 @@ $info = mysql_fetch_array ( $query );
 				        });
 				    </script>
 				</div>
-				<!-- //product-details ---->
+				<!-- //product-details -->
 			</div>
 		</div>
-		<!----content---->
+		<!--content-->
 		<div class="clearfix"></div>
-		<!----footer--->
+		<!--footer-->
 		<div class="footer">
 			<div class="container">
 				<div class="col-md-3 footer-logo">
@@ -492,8 +492,8 @@ $info = mysql_fetch_array ( $query );
 			</div>
 		</div>
 		<div class="clearfix"></div>
-		<!---//footer--->
-		<!---copy-right--->
+		<!--//footer-->
+		<!--copy-right-->
 		<div class="copy-right">
 			<div class="container">
 				<script type="text/javascript">
@@ -515,9 +515,9 @@ $info = mysql_fetch_array ( $query );
 					id="toTopHover" style="opacity: 1;"> </span></a>
 			</div>
 		</div>
-		<!--//copy-right--->
+		<!--//copy-right-->
 	</div>
-	<!----container---->
+	<!--container-->
 </body>
 </html>
 

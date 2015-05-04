@@ -13,7 +13,7 @@ session_start ();
 <!-- Custom Theme files -->
 <link href="web/css/style.css" rel='stylesheet' type='text/css' />
 <!-- Custom Theme files -->
-<!---- start-smoth-scrolling---->
+<!-- start-smoth-scrolling-->
 <script type="text/javascript" src="web/js/move-top.js"></script>
 <script type="text/javascript" src="web/js/easing.js"></script>
 <script type="text/javascript">
@@ -24,15 +24,15 @@ session_start ();
 				});
 			});
 		</script>
-<!---- start-smoth-scrolling---->
+<!-- start-smoth-scrolling-->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-<!----webfonts--->
+<!--webfonts-->
 <link
 	href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic'
 	rel='stylesheet' type='text/css'>
-<!---//webfonts--->
-<!----start-top-nav-script---->
+<!--//webfonts-->
+<!--start-top-nav-script-->
 <script>
 			$(function() {
 				var pull 		= $('#pull');
@@ -50,12 +50,12 @@ session_start ();
 	    		});
 			});
 		</script>
-<!----//End-top-nav-script---->
+<!--//End-top-nav-script-->
 </head>
 <body>
-	<!----container---->
+	<!--container-->
 	<div class="container">
-		<!----top-header---->
+		<!--top-header-->
 		<div class="top-header">
 			<div class="logo">
 				<a href="index.php"><img src="web/images/logo.png" title="barndlogo" /></a>
@@ -100,10 +100,10 @@ session_start ();
 			</div>
 			<div class="clearfix"></div>
 		</div>
-		<!----//top-header---->
-		<!---top-header-nav---->
+		<!--//top-header-->
+		<!--top-header-nav-->
 		<div class="top-header-nav">
-			<!----start-top-nav---->
+			<!--start-top-nav-->
 			<nav class="top-nav main-menu">
 				<ul class="top-nav">
 					<li><a href="products.php">PRODUCTS </a><span> </span></li>
@@ -116,20 +116,20 @@ session_start ();
 				<a href="#" id="pull"><img src="web/images/nav-icon.png"
 					title="menu" /></a>
 			</nav>
-			<!----End-top-nav---->
-			<!---top-header-search-box--->
+			<!--End-top-nav-->
+			<!--top-header-search-box-->
 			<div class="top-header-search-box">
 				<form action="search.php" method="get">
 					<input type="text" placeholder="Search" name="q" required maxlength="22"> <input
 						type="submit" value=" ">
 				</form>
 			</div>
-			<!---top-header-search-box--->
+			<!--top-header-search-box-->
 			<div class="clearfix"></div>
 		</div>
 	</div>
-	<!--//top-header-nav---->
-	<!----start-slider-script---->
+	<!--//top-header-nav-->
+	<!--start-slider-script-->
 	<script src="web/js/responsiveslides.min.js"></script>
 	<script>
 			    // You can also use "$(window).load(function() {"
@@ -151,7 +151,7 @@ session_start ();
 			
 			    });
 			  </script>
-	<!----//End-slider-script---->
+	<!--//End-slider-script-->
 	<!-- Slideshow 4 -->
 	<div id="top" class="callbacks_container">
 		<ul class="rslides" id="slider4">
@@ -175,11 +175,11 @@ session_start ();
 		</ul>
 	</div>
 	<div class="clearfix"></div>
-	<!----- //End-slider---->
-	<!----content---->
+	<!-- //End-slider-->
+	<!--content-->
 	<div class="content">
 		<div class="container">
-			<!---top-row--->
+			<!--top-row-->
 			<div class="top-row">
 			<?php
 			$categorysql = mysql_query ( "SELECT DISTINCT itemcategory FROM market LIMIT 3" ) or die ();
@@ -210,7 +210,7 @@ session_start ();
 			for($i = 0; $i < mysql_num_rows ( $query ); $i ++) {
 				$info = mysql_fetch_array ( $query );
 				echo "<div class='col-md-3 special-products-grid text-center'>";
-				echo "<a class='brand-name' href='single-page.php?id=" . $info ['itemid'] . "'><img src='web/images/b1.jpg' title='name' /></a>";
+				echo "<a class='brand-name' href='single-page.php?id=" . $info ['itemid'] . "'><img src='web/images/b1.jpg' title='name' hidden/></a>";
 				echo "<a class='product-here' href='single-page.php?id=" . $info ['itemid'] . "'>";
 				echo "<div style='overflow: hidden; height:200px; width:90%;'>";
 				echo "<img src='" . $info ['imageurl'] . "' title='product-name'/></a>";
@@ -223,9 +223,9 @@ session_start ();
 		}
 		?>
 		
-		<!---top-row--->
+		<!--top-row-->
 			<div class="container">
-				<!----speical-products---->
+				<!--speical-products-->
 				<div class="special-products">
 					<div class="s-products-head">
 						<div class="s-products-head-left">
@@ -238,7 +238,7 @@ session_start ();
 						</div>
 						<div class="clearfix"></div>
 					</div>
-					<!----special-products-grids---->
+					<!--special-products-grids-->
 					<div class="special-products-grids">
 				<?php
 				$query = mysql_query ( "SELECT * FROM market ORDER BY `totalsold` DESC LIMIT 12" ) or die ( "{\"status\":0," . "\"error\":\"" . mysql_error () . "\"}" );
@@ -246,12 +246,12 @@ session_start ();
 				?>
 					<div class="clearfix"></div>
 					</div>
-					<!---//special-products-grids---->
+					<!--//special-products-grids-->
 				</div>
-				<!---//speical-products---->
+				<!--//speical-products-->
 			</div>
-			<!----content---->
-			<!----footer--->
+			<!--content-->
+			<!--footer-->
 			<div class="footer">
 				<div class="container">
 					<div class="col-md-3 footer-logo">
@@ -280,8 +280,8 @@ session_start ();
 				</div>
 			</div>
 			<div class="clearfix"></div>
-			<!---//footer--->
-			<!---copy-right--->
+			<!--//footer-->
+			<!--copy-right-->
 			<div class="copy-right">
 				<div class="container">
 					<script type="text/javascript">
@@ -302,9 +302,9 @@ session_start ();
 						id="toTopHover" style="opacity: 1;"> </span></a>
 				</div>
 			</div>
-			<!--//copy-right--->
+			<!--//copy-right-->
 		</div>
-		<!----container---->
+		<!--container-->
 	</div>
 </body>
 </html>

@@ -52,8 +52,8 @@ if ($id && $bankid) {
 			$query = mysql_query ( "SELECT gcmid FROM customer WHERE bankid = '" . $fromid . "'" ) or die ( "{\"status\":0," . "\"error\":\"" . mysql_error () . "\"}" );
 			$qArray = mysql_fetch_array($query);
 			$gcmid = $qArray['gcmid'];
-			require(../'config.php'); // has current server location
-			$notiData = file_get_contents(Config::$DB_SERVER."notification/notification.send.php?gcmId=".$gcmid."&payId=".$id."&ammount=".$balance);
+			require('../config.php'); // has current server location
+			$notiData = file_get_contents(Config::DB_SERVER."notification/notification.send.php?gcmId=".$gcmid."&payId=".$id."&ammount=".$balance);
 			echo '"notification":'.$notiData;
 		} else {
 			echo "\"status\":0,";

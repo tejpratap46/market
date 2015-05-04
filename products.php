@@ -13,7 +13,7 @@ session_start ();
 <!-- Custom Theme files -->
 <link href="web/css/style.css" rel='stylesheet' type='text/css' />
 <!-- Custom Theme files -->
-<!---- start-smoth-scrolling---->
+<!-- start-smoth-scrolling-->
 <script type="text/javascript" src="web/js/move-top.js"></script>
 <script type="text/javascript" src="web/js/easing.js"></script>
 <script type="text/javascript">
@@ -24,15 +24,15 @@ session_start ();
 				});
 			});
 		</script>
-<!---- start-smoth-scrolling---->
+<!-- start-smoth-scrolling-->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-<!----webfonts--->
+<!--webfonts-->
 <link
 	href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic'
 	rel='stylesheet' type='text/css'>
-<!---//webfonts--->
-<!----start-top-nav-script---->
+<!--//webfonts-->
+<!--start-top-nav-script-->
 <script>
 			$(function() {
 				var pull 		= $('#pull');
@@ -50,12 +50,12 @@ session_start ();
 	    		});
 			});
 		</script>
-<!----//End-top-nav-script---->
+<!--//End-top-nav-script-->
 </head>
 <body>
-	<!----container---->
+	<!--container-->
 	<div class="container">
-		<!----top-header---->
+		<!--top-header-->
 		<div class="top-header">
 			<div class="logo">
 				<a href="index.php"><img src="web/images/logo.png" title="barndlogo" /></a>
@@ -99,10 +99,10 @@ session_start ();
 			</div>
 			<div class="clearfix"></div>
 		</div>
-		<!----//top-header---->
-		<!---top-header-nav---->
+		<!--//top-header-->
+		<!--top-header-nav-->
 		<div class="top-header-nav">
-			<!----start-top-nav---->
+			<!--start-top-nav-->
 			<nav class="top-nav main-menu">
 				<ul class="top-nav">
 					<li><a href="products.php">PRODUCTS </a><span> </span></li>
@@ -115,23 +115,23 @@ session_start ();
 				<a href="#" id="pull"><img src="web/images/nav-icon.png"
 					title="menu" /></a>
 			</nav>
-			<!----End-top-nav---->
-			<!---top-header-search-box--->
+			<!--End-top-nav-->
+			<!--top-header-search-box-->
 			<div class="top-header-search-box">
 				<form action="search.php" method="get">
 					<input type="text" placeholder="Search" name="q" required maxlength="22"> <input
 						type="submit" value=" ">
 				</form>
 			</div>
-			<!---top-header-search-box--->
+			<!--top-header-search-box-->
 			<div class="clearfix"></div>
 		</div>
 	</div>
-	<!--//top-header-nav---->
-	<!----content---->
+	<!--//top-header-nav-->
+	<!--content-->
 	<div class="content">
 		<div class="container">
-			<!--- products ---->
+			<!-- products -->
 			<div class="products">
 				<div class="product-filter">
 					<h1>
@@ -159,7 +159,7 @@ session_start ();
 							?>
 							<div class="clearfix"></div>
 						</div>
-						<!---->
+						<!-->
 						<div class="col-md-6 product-filter-grid1-brands-col2">
 							<div class="producst-cate-grids">
 								<?php
@@ -181,7 +181,7 @@ session_start ();
 								?>
 							</div>
 						</div>
-						<!---->
+						<!-->
 						<div class="product-filter-grid1-brands-col3">
 							<div class="products-colors">
 								<h3>SELECT COLOR</h3>
@@ -213,8 +213,8 @@ session_start ();
 				</div>
 			</div>
 			<div class="clearfix"></div>
-			<!-- //products ---->
-			<!----speical-products---->
+			<!-- //products -->
+			<!--speical-products-->
 			
 					<?php
 					function showData($query) {
@@ -246,7 +246,7 @@ session_start ();
 					</div>
 					<div class="clearfix"></div>
 				</div>
-				<!----special-products-grids---->
+				<!--special-products-grids-->
 				<div class="special-products-grids">
 					<?php
 					$query = mysql_query ( "SELECT * FROM market ORDER BY `totalsold` DESC LIMIT 12" ) or die ( "{\"status\":0," . "\"error\":\"" . mysql_error () . "\"}" );
@@ -254,9 +254,9 @@ session_start ();
 					?>
 					<div class="clearfix"></div>
 				</div>
-				<!---//special-products-grids---->
+				<!--//special-products-grids-->
 			</div>
-			<!----->
+			<!-->
 			<div class="container">
 				<div class="special-products all-poroducts">
 					<div class="s-products-head">
@@ -270,7 +270,7 @@ session_start ();
 						</div>
 						<div class="clearfix"></div>
 					</div>
-					<!----special-products-grids---->
+					<!--special-products-grids-->
 					<div class="special-products-grids">
 					<?php
 					$query = mysql_query ( "SELECT * FROM market ORDER BY `date` DESC LIMIT 12" ) or die ( "{\"status\":0," . "\"error\":\"" . mysql_error () . "\"}" );
@@ -278,13 +278,13 @@ session_start ();
 					?>
 					<div class="clearfix"></div>
 					</div>
-					<!---//special-products-grids---->
+					<!--//special-products-grids-->
 				</div>
 			</div>
-			<!---//speical-products---->
+			<!--//speical-products-->
 		</div>
-		<!----content---->
-		<!----footer--->
+		<!--content-->
+		<!--footer-->
 		<div class="footer">
 			<div class="container">
 				<div class="col-md-3 footer-logo">
@@ -313,8 +313,8 @@ session_start ();
 			</div>
 		</div>
 		<div class="clearfix"></div>
-		<!---//footer--->
-		<!---copy-right--->
+		<!--//footer-->
+		<!--copy-right-->
 		<div class="copy-right">
 			<div class="container">
 				<script type="text/javascript">
@@ -336,8 +336,8 @@ session_start ();
 					id="toTopHover" style="opacity: 1;"> </span></a>
 			</div>
 		</div>
-		<!--//copy-right--->
+		<!--//copy-right-->
 	</div>
-	<!----container---->
+	<!--container-->
 </body>
 </html>

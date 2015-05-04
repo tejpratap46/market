@@ -21,9 +21,9 @@ if ($coupon && $list) {
 	if ($query) {
 		$query1 = mysql_query ( "SELECT * FROM coupon WHERE code='" . $coupon . "'" ) or die ( "{\"status\":0," . "\"error\":\"" . mysql_error () . "\"}" );
 		if (mysql_num_rows ( $query1 )) {
-			$list = mysql_fetch_array ( $query );
+			$listArray = mysql_fetch_array ( $query );
 			$coupon = mysql_fetch_array ( $query1 );
-			$xml = str_get_html ( $list ['items'] );
+			$xml = str_get_html ( $listArray ['items'] );
 			$couponItem = str_getcsv ( $coupon ['items'] );
 			$listItems = $xml->find ( 'id' ); // to get number of items
 			$listids = Array (); // to store ids
