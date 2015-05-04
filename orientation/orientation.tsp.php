@@ -22,6 +22,7 @@ if ($listid) {
 	$items = mysql_fetch_array ( $query );
 	preg_match_all ( "#<id.*?>([^<]+)</id>#", $items ['items'], $matches );
 	$itemcount = array_count_values ( $matches [1] );
+	$pixels = array ();
 	$i = 0; // foreach count
 	foreach ( $itemcount as $key => $value ) { // $key = itemid, $value = count
 		$marketQuery = mysql_query ( "SELECT `itemlocation` FROM `market` WHERE `itemid` = '" . $key . "'" );
@@ -31,6 +32,8 @@ if ($listid) {
 		$array = str_getcsv ( $location ['latlong'] );
 		// print_r($array);
 		$i ++;
+		// $pixels = array_merge ( $pixels, str_getcsv ( $location ['pixelloc'] ) );
+		array_push($pixels, $location ['pixelloc']);
 		// echo $i." -> ".$array [0] . " " . $array [1] . " " . $array [2] . "<br />";
 		$tsp->add ( $itemLocation ['itemlocation'], $array [0], $array [1] );
 	}
@@ -47,7 +50,9 @@ if ($listid) {
 	echo "{\"shortest_path\":";
 	echo json_encode ( $tsp->shortest_route () );
 	echo ",\"other_shortest_path\":";
-	echo json_encode ( $tsp->matching_shortest_routes () );
+	echo json_encode ( $tsp->matching_shortest_routes () ).",";
+	echo '"pixelloc":';
+	echo json_encode($pixels);
 	echo "}";
 	// echo '<br />Num Routes: ' . count ( $tsp->routes () );
 	// echo '<br />Matching shortest Routes: ';

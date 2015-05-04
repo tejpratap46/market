@@ -137,11 +137,15 @@ session_start ();
 			<?php
 			$mapQuery = mysql_query ( "SELECT * FROM maps WHERE floor='" . $_GET ['floor'] . "'" );
 			$mapArray = mysql_fetch_array ( $mapQuery );
-			echo "<img alt='" . $mapArray ['imagealt'] . "' src='" . $mapArray ['imageurl'] . "' style='max-width: 100%;'/>\n";
+			echo "<img alt='" . $mapArray ['imagealt'] . "' src='' style='max-width: 100%;'/>\n";
 			?>
 			</div>
 			
 			<?php
+			// if your system is fast enough to complete a image processing request then use first statement else second
+			// echo "<img alt='" . $mapArray ['imagealt'] . "' src='map".$_GET['listid'].".jpg' style='max-width: 100%;'/>\n";
+			echo "<a href='" . $mapArray ['imagefull'] . "'><img alt='" . $mapArray ['imagealt'] . "' src='" . $mapArray ['imageurl'] . "' style='width: 100%;'></a>";
+
 			$query = mysql_query ( "SELECT `items` FROM `lists` WHERE `listid` = '" . $_GET ['listid'] . "'" );
 			findRoute ( $query );
 			?>
@@ -168,6 +172,7 @@ session_start ();
 			}
 			$tsp->compute ();
 			
+			// commenting it coz out system cannot do image processing in 30 sec
 			// editImage($pixels);
 			
 			// echo 'Shortest Distance: ' . $tsp->shortest_distance ();
@@ -208,6 +213,20 @@ session_start ();
 				}
 			}
 			echo "<p>Now proceed for payments</p>";
+		}
+
+		function editImage($path) {
+			// copy($location, 'map.jpg');
+			$jpeg_image = imagecreatefromjpeg ( 'mall_map.jpg' );
+			$backgroundColor = imagecolorallocate ( $jpeg_image, 255, 255, 0 );
+			$blue = imagecolorallocate ( $jpeg_image, 77, 88, 99 );
+			imagesetthickness ( $jpeg_image, 5 );
+			for($i = 0; $i < count ( $path ); $i = i + 2) {
+				// imageline ( $jpeg_image, $i [i], $i [i + 1], $i [i + 2], $i [i + 3], $blue );
+				imagestring($im, 5, $i[i], $i[i + 1], '♠', $blue);
+			}
+			imagejpeg ( $jpeg_image, "map.jpg" );
+			echo "<img src='map".$_GET['listid'].".jpg'/>";
 		}
 		?>
 		<!----content---->

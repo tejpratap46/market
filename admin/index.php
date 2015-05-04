@@ -4,6 +4,44 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
+<?php
+if (!isset($_COOKIE['admin'])) {
+    header('Location: login.php');
+}else{
+    error_reporting ( 0 );
+    require ("../connection.php");
+    require ('../config.php');
+    $newFeedbacks = json_decode(file_get_contents(Config::DB_SERVER."query.php?apikey=tejpratap&query=SELECT+COUNT(*)+FROM+feedback+WHERE+seen=0"))[0][0];
+    $totalProducts = json_decode(file_get_contents(Config::DB_SERVER."query.php?apikey=tejpratap&query=SELECT+COUNT(*)+FROM+market+WHERE+1"))[0][0];
+    $totalCustomers = json_decode(file_get_contents(Config::DB_SERVER."query.php?apikey=tejpratap&query=SELECT+COUNT(*)+FROM+customer+WHERE+1"))[0][0];
+    $totalNewCustomers = json_decode(file_get_contents(Config::DB_SERVER."query.php?query=SELECT+COUNT(username)+FROM+customer+WHERE+timestamp+LIKE+'%" + date ("d-m-y") + "%'&apikey=tejpratap"))[0][0];
+    $totalNewProducts = json_decode(file_get_contents(Config::DB_SERVER."query.php?query=SELECT+COUNT(itemid)+FROM+market+WHERE+timestamp+LIKE+'%" + date ("d-m-y") + "%'&apikey=tejpratap"))[0][0];
+    $totalNewPayments = json_decode(file_get_contents(Config::DB_SERVER."query.php?query=SELECT+SUM(balance)+FROM+payment_completed+WHERE+timestamp+LIKE+'%" + date ("d-m-y") + "%'&apikey=tejpratap"))[0][0];
+    $totalNewPendingPayments = json_decode(file_get_contents(Config::DB_SERVER."query.php?query=SELECT+SUM(balance)+FROM+payment+WHERE+timestamp+LIKE+'%" + date ("d-m-y") + "%'&apikey=tejpratap"))[0][0];
+
+    if (strlen($newFeedbacks) < 1) {
+        $newFeedbacks = "0";
+    }
+    if (strlen($totalProducts) < 1) {
+        $totalProducts = "0";
+    }
+    if (strlen($totalCustomers) < 1) {
+        $totalCustomers = "0";
+    }
+    if (strlen($totalNewCustomers) < 1) {
+        $totalNewCustomers = "0";
+    }
+    if (strlen($totalNewProducts) < 1) {
+        $totalNewProducts = "0";
+    }
+    if (strlen($totalNewPayments) < 1) {
+        $totalNewPayments = "0";
+    }
+    if (strlen($totalNewPendingPayments) < 1) {
+        $totalNewPendingPayments = "0";
+    }
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -87,13 +125,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	});	  
 });
 </script>
-<!----Calender -------->
+<!--Calender -->
 <link rel="stylesheet" href="css/clndr.css" type="text/css" />
 <script src="js/underscore-min.js"></script>
 <script src="js/moment-2.2.1.js"></script>
 <script src="js/clndr.js"></script>
 <script src="js/site.js"></script>
-<!----End Calender -------->
+<!--End Calender -->
 <script src="js/highcharts.js"></script>
 <script src="js/easyResponsiveTabs.js" type="text/javascript"></script>
 <script type="text/javascript">
@@ -616,9 +654,9 @@ px
 			<div class="home-strip">
 				<div class="view">
 					<ul>
-						<li><a href="index.html"><i class="refresh"></i></a></li>
+						<li><a href="index.php"><i class="refresh"></i></a></li>
 						<li class="messages"><a href="#"><i class="msgs"></i><span
-								class="red">8</span></a></li>
+								class="red"><?php echo $newFeedbacks;?></span></a></li>
 						<li class="notifications"><a href="#"><i class="bell"></i><span
 								class="blue">9</span></a></li>
 					</ul>
@@ -634,7 +672,7 @@ px
 				</div>
 				<div class="member">
 					<p>
-						<a href="#"><i class="men"></i></a><a href="#"><?php $_COOKIE['admin_name']?></a>
+						<a href="#"><i class="men"></i></a><a href="#"><?php echo $_COOKIE['admin'];?></a>
 					</p>
 					<div id="dd" class="wrapper-dropdown-2" tabindex="1">
 						<span><img src="images/settings.png" /></span>
@@ -648,8 +686,8 @@ px
 							<li><a href="#">Log out</a></li>
 						</ul>
 					</div>
-					<!-----end-wrapper-dropdown-2---->
-					<!-----start-script---->
+					<!---end-wrapper-dropdown-2-->
+					<!---start-script-->
 					<script type="text/javascript">
 							function DropDown(el) {
 								this.dd = el;
@@ -687,28 +725,28 @@ px
 			<div class="list_of_members">
 				<div class="visitors">
 					<h4>
-						TOTAL <strong>VISITOR</strong>
+						TATAL <strong>CUSTOMERS</strong>
 					</h4>
-					<h3>40,600</h3>
-					<p>10% New Today</p>
+					<h3><?php echo $totalCustomers;?></h3>
+					<p><?php echo $totalNewCustomers;?> New Today</p>
 					<a href="#"><i class="go"></i></a>
 					<div class="clearfix"></div>
 				</div>
 				<div class="sales">
 					<h4>
-						TOTAL <strong>SALE</strong>
+						TOTAL <strong>SALE TODAY</strong>
 					</h4>
-					<h3>13,370</h3>
-					<p>400 New Today</p>
+					<h3><?php echo $totalNewPayments;?></h3>
+					<p><?php echo $totalNewPendingPayments;?> New Pending Today</p>
 					<a href="#"><i class="go"></i></a>
 					<div class="clearfix"></div>
 				</div>
 				<div class="users">
 					<h4>
-						TOTAL <strong>USER</strong>
+						TOTAL <strong>PRODUCTS</strong>
 					</h4>
-					<h3>15,200</h3>
-					<p>470 New Today</p>
+					<h3><?php echo $totalProducts;?></h3>
+					<p><?php echo $totalNewProducts;?> New Today</p>
 					<a href="#"><i class="go"></i></a>
 					<div class="clearfix"></div>
 				</div>
