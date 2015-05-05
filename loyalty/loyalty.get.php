@@ -14,9 +14,17 @@ if (! empty ( $apikey )) {
 	die ( "{\"status\":0," . "\"error\":\"invalid apikey\"}" );
 }
 
-if ($username && $password) {
+if ($username) {
 	$query = mysql_query("SELECT * FROM `loyalty` WHERE username='".$username."'") or die ( "{\"status\":0," . "\"error\":\"" . mysql_error () . "\"}" );
+	$qArray = mysql_fetch_array($query);
+	echo "{";
+	echo '"status":1,'
+	echo '"username":"'.$qArray['username'].'",';
+	echo '"total_purchases":"'.$qArray['total_purchases'].'",';
+	echo '"total_ammount":"'.$qArray['total_ammount'].'",';
+	echo '"points":"'.$qArray['points'].'",';
+	echo '"timestamp":"'.$qArray['timestamp'].'"';
 }else{
-	die ( "{\"status\":0," . "\"error\":\"Enter username, password\"}" );
+	die ( "{\"status\":0," . "\"error\":\"Enter username\"}" );
 }
 ?>
