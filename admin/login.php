@@ -9,7 +9,7 @@ $password = $_POST ['password'];
 if (! empty ( $username ) || ! empty ( $password )) {
 	$query = mysql_query ( "SELECT * FROM manager WHERE username = '$username' AND password = '$password'" ) or die ( "{\"status\":0," . "\"error\":\"" . mysql_error () . "\"}" );
 	if (mysql_num_rows ( $query ) == 1) {
-		mysql_query("UPDATE manager SET last_login='".date ( "d-m-y H:i:s" )."' WHERE username='$username')") or die ( "{\"status\":0," . "\"error\":\"" . mysql_error () . "\"}" );
+		mysql_query("UPDATE manager SET last_login='".date ( "d-m-y H:i:s" )."' WHERE username='$username'") or die ( "{\"status\":0," . "\"error\":\"" . mysql_error () . "\"}" );
 		setcookie ( 'admin', $username, time () + (86400 * 30 * 12), "/" );
 		header ( "Location: index.php" );
 	} else {

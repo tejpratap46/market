@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 02, 2015 at 01:37 PM
+-- Generation Time: May 06, 2015 at 06:12 AM
 -- Server version: 5.5.25a
 -- PHP Version: 5.4.4
 
@@ -60,7 +60,7 @@ CREATE TABLE IF NOT EXISTS `bank` (
 --
 
 INSERT INTO `bank` (`bankid`, `username`, `name`, `balance`, `lastupdate`, `email`, `timestamp`) VALUES
-('123456789', '', 'Tej Pratap', '1550000', '22-11-14 20:41:46', 'tejpratap36@gmail.co', '0000-00-00 00:00:00'),
+('123456789', '', 'Tej Pratap', '677117', '03-05-15 18:10:57', 'tejpratap36@gmail.co', '0000-00-00 00:00:00'),
 ('1235468562', '', 'Tej Pratap', '0', '31-01-15 19:15:45', 'tejpratap36@gmail.co', '0000-00-00 00:00:00'),
 ('152364485', '', 'Tej Pratap Singh', '0', '09-12-14 14:10:52', 'tps@xyz.com', '0000-00-00 00:00:00'),
 ('1572962589', '', 'Shubham', '0', '18-03-15 06:24:22', 'shubham@gmail.com', '0000-00-00 00:00:00'),
@@ -175,6 +175,21 @@ INSERT INTO `featured` (`index`, `code`, `imageurl`, `description`, `timestamp`)
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `feedback`
+--
+
+CREATE TABLE IF NOT EXISTS `feedback` (
+  `id` int(255) NOT NULL AUTO_INCREMENT,
+  `username` varchar(100) NOT NULL,
+  `message` text NOT NULL,
+  `seen` tinyint(1) NOT NULL DEFAULT '0',
+  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `lists`
 --
 
@@ -265,6 +280,27 @@ CREATE TABLE IF NOT EXISTS `loyalty` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `manager`
+--
+
+CREATE TABLE IF NOT EXISTS `manager` (
+  `username` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  `last_login` varchar(100) NOT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`username`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `manager`
+--
+
+INSERT INTO `manager` (`username`, `password`, `last_login`, `timestamp`) VALUES
+('admin', 'admin', '', '2015-05-04 15:12:46');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `maps`
 --
 
@@ -343,7 +379,13 @@ CREATE TABLE IF NOT EXISTS `payment` (
 --
 
 INSERT INTO `payment` (`id`, `from`, `to`, `balance`, `listid`, `timestamp`) VALUES
-('106205544aa08aba091.31804240', '123456789', '0000000000', 46288, '', '2015-05-02 10:42:16');
+('554749fe1d651', '123456789', '0000000000', 96987, '152346994', '2015-05-04 10:29:18'),
+('55474dfd45267', '123456789', '0000000000', 96987, '152346994', '2015-05-04 10:46:21'),
+('55474e2828e3f', '123456789', '0000000000', 96987, '152346994', '2015-05-04 10:47:04'),
+('55474e5bcec3a', '123456789', '0000000000', 96987, '152346994', '2015-05-04 10:47:55'),
+('55474f7284c18', '123456789', '0000000000', 96987, '152346994', '2015-05-04 10:52:34'),
+('55475246d3add', '123456789', '0000000000', 96987, '152346994', '2015-05-04 11:04:38'),
+('5547858f290a5', '123456789', '0000000000', 87589, '152346994', '2015-05-04 14:43:27');
 
 -- --------------------------------------------------------
 
@@ -357,9 +399,24 @@ CREATE TABLE IF NOT EXISTS `payment_completed` (
   `toid` varchar(50) NOT NULL,
   `balance` varchar(50) NOT NULL,
   `listid` varchar(50) NOT NULL,
+  `listitems` text NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `payment_completed`
+--
+
+INSERT INTO `payment_completed` (`id`, `fromid`, `toid`, `balance`, `listid`, `listitems`, `timestamp`) VALUES
+('123456789000000000096987', '123456789', '0000000000', '96987', '152346994', '', '2015-05-05 15:50:59'),
+('1292455464891a980e5.72697431', '123456789', '0000000000', '96987', '152346994', '', '2015-05-03 16:10:57'),
+('14080554646ed3144f4.76461259', '123456789', '0000000000', '96987', '152346994', '', '2015-05-03 16:03:57'),
+('17196554647e15a2c64.27638104', '123456789', '0000000000', '96987', '152346994', '', '2015-05-03 16:08:01'),
+('25967554648502c50e3.73749303', '123456789', '0000000000', '96987', '152346994', '', '2015-05-03 16:09:52'),
+('27835546476857aa72.73974609', '123456789', '0000000000', '96987', '152346994', '', '2015-05-04 16:06:00'),
+('69695546470a519005.87012763', '123456789', '0000000000', '96987', '152346994', '', '2015-05-04 16:04:26'),
+('95985546472bb9d067.39136518', '123456789', '0000000000', '96987', '152346994', '', '2015-05-03 16:04:59');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

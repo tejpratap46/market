@@ -11,13 +11,20 @@ if (!isset($_COOKIE['admin'])) {
     error_reporting ( 0 );
     require ("../connection.php");
     require ('../config.php');
-    $newFeedbacks = json_decode(file_get_contents(Config::DB_SERVER."query.php?apikey=tejpratap&query=SELECT+COUNT(*)+FROM+feedback+WHERE+seen=0"))[0][0];
-    $totalProducts = json_decode(file_get_contents(Config::DB_SERVER."query.php?apikey=tejpratap&query=SELECT+COUNT(*)+FROM+market+WHERE+1"))[0][0];
-    $totalCustomers = json_decode(file_get_contents(Config::DB_SERVER."query.php?apikey=tejpratap&query=SELECT+COUNT(*)+FROM+customer+WHERE+1"))[0][0];
-    $totalNewCustomers = json_decode(file_get_contents(Config::DB_SERVER."query.php?query=SELECT+COUNT(username)+FROM+customer+WHERE+timestamp+LIKE+'%".(date ("y-m-d"))."%'&apikey=tejpratap"))[0][0];
-    $totalNewProducts = json_decode(file_get_contents(Config::DB_SERVER."query.php?query=SELECT+COUNT(itemid)+FROM+market+WHERE+timestamp+LIKE+'%".(date ("y-m-d"))."%'&apikey=tejpratap"))[0][0];
-    $totalNewPayments = json_decode(file_get_contents(Config::DB_SERVER."query.php?query=SELECT+SUM(balance)+FROM+payment_completed+WHERE+timestamp+LIKE+%27%25".(date ("y-m-d"))."%25%27&apikey=tejpratap"))[0][0];
-    $totalNewPendingPayments = json_decode(file_get_contents(Config::DB_SERVER."query.php?query=SELECT+SUM(balance)+FROM+payment+WHERE+timestamp+LIKE+%27%25".(date ("y-m-d"))."%25%27&apikey=tejpratap"))[0][0];
+    $newFeedbacksArray = json_decode(file_get_contents(Config::DB_SERVER."query.php?apikey=tejpratap&query=SELECT+COUNT(*)+FROM+feedback+WHERE+seen=0"));
+    $newFeedbacks = $newFeedbacksArray[0][0];
+    $totalProductsArray = json_decode(file_get_contents(Config::DB_SERVER."query.php?apikey=tejpratap&query=SELECT+COUNT(*)+FROM+market+WHERE+1"));
+    $totalProducts = $totalProductsArray[0][0];
+    $totalCustomersArray = json_decode(file_get_contents(Config::DB_SERVER."query.php?apikey=tejpratap&query=SELECT+COUNT(*)+FROM+customer+WHERE+1"));
+    $totalCustomers = $totalCustomersArray[0][0];
+    $totalNewCustomersArray = json_decode(file_get_contents(Config::DB_SERVER."query.php?query=SELECT+COUNT(username)+FROM+customer+WHERE+timestamp+LIKE+'%".(date ("y-m-d"))."%'&apikey=tejpratap"));
+    $totalNewCustomers = $totalNewCustomersArray[0][0];
+    $totalNewProductsArray = json_decode(file_get_contents(Config::DB_SERVER."query.php?query=SELECT+COUNT(itemid)+FROM+market+WHERE+timestamp+LIKE+'%".(date ("y-m-d"))."%'&apikey=tejpratap"));
+    $totalNewProducts = $totalNewProductsArray[0][0];
+    $totalNewPaymentsArray = json_decode(file_get_contents(Config::DB_SERVER."query.php?query=SELECT+SUM(balance)+FROM+payment_completed+WHERE+timestamp+LIKE+%27%25".(date ("y-m-d"))."%25%27&apikey=tejpratap"));
+    $totalNewPayments = $totalNewPaymentsArray[0][0];
+    $totalNewPendingPaymentsArray = json_decode(file_get_contents(Config::DB_SERVER."query.php?query=SELECT+SUM(balance)+FROM+payment+WHERE+timestamp+LIKE+%27%25".(date ("y-m-d"))."%25%27&apikey=tejpratap"));
+    $totalNewPendingPayments = $totalNewPendingPaymentsArray[0][0];
 
     if (strlen($newFeedbacks) < 1) {
         $newFeedbacks = "0";
