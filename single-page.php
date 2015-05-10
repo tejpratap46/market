@@ -361,13 +361,13 @@ $info = mysql_fetch_array ( $query );
 									<h3>Share This:</h3>
 									<ul>
 										<li><a class="share-face" target="_blank"
-											href="https://www.facebook.com/sharer/sharer.php?u=nfcstore.vv.si/single-page.php?id=<?php echo $_GET['id'];?>"><span>
+											href="https://www.facebook.com/sharer/sharer.php?u=http://nfcstore.vv.si/single-page.php?id=<?php echo $_GET['id'];?>"><span>
 											</span> </a></li>
 										<li><a class="share-twitter" target="_blank"
-											href="https://twitter.com/home?status=nfcstore.vv.si/single-page.php?id=<?php echo $_GET['id'];?>"><span>
+											href="https://twitter.com/home?status=http://nfcstore.vv.si/single-page.php?id=<?php echo $_GET['id'];?>"><span>
 											</span> </a></li>
 										<li><a class="share-google" target="_blank"
-											href="https://plus.google.com/share?url=<?php  echo $_GET['id'];?>"><span>
+											href="https://plus.google.com/share?url=http://nfcstore.vv.si/single-page.php?id=<?php  echo $_GET['id'];?>"><span>
 											</span> </a></li>
 										<li><a class="share-rss" target="_blank" href="#"><span> </span>
 										</a></li>

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 06, 2015 at 06:12 AM
+-- Generation Time: May 10, 2015 at 04:25 PM
 -- Server version: 5.5.25a
 -- PHP Version: 5.4.4
 
@@ -51,6 +51,9 @@ CREATE TABLE IF NOT EXISTS `bank` (
   `balance` varchar(20) NOT NULL,
   `lastupdate` varchar(20) NOT NULL,
   `email` varchar(20) NOT NULL,
+  `cardpin` varchar(16) NOT NULL,
+  `expiry` varchar(8) NOT NULL,
+  `cvv` int(3) NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`bankid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -59,14 +62,14 @@ CREATE TABLE IF NOT EXISTS `bank` (
 -- Dumping data for table `bank`
 --
 
-INSERT INTO `bank` (`bankid`, `username`, `name`, `balance`, `lastupdate`, `email`, `timestamp`) VALUES
-('123456789', '', 'Tej Pratap', '677117', '03-05-15 18:10:57', 'tejpratap36@gmail.co', '0000-00-00 00:00:00'),
-('1235468562', '', 'Tej Pratap', '0', '31-01-15 19:15:45', 'tejpratap36@gmail.co', '0000-00-00 00:00:00'),
-('152364485', '', 'Tej Pratap Singh', '0', '09-12-14 14:10:52', 'tps@xyz.com', '0000-00-00 00:00:00'),
-('1572962589', '', 'Shubham', '0', '18-03-15 06:24:22', 'shubham@gmail.com', '0000-00-00 00:00:00'),
-('7536925174', '', 'tej', '10000', '23-10-14 14:52:31', 'tejpratap36@gmail.co', '0000-00-00 00:00:00'),
-('987654321', '', 'Tej', '89500', '22-11-14 20:41:46', 'tejpratap66@gmail.co', '0000-00-00 00:00:00'),
-('asd', '', 'asd', '0', '10-12-14 16:28:47', 'asd', '0000-00-00 00:00:00');
+INSERT INTO `bank` (`bankid`, `username`, `name`, `balance`, `lastupdate`, `email`, `cardpin`, `expiry`, `cvv`, `timestamp`) VALUES
+('123456789', '', 'Tej Pratap', '677117', '03-05-15 18:10:57', 'tejpratap36@gmail.co', '', '', 0, '0000-00-00 00:00:00'),
+('1235468562', '', 'Tej Pratap', '0', '31-01-15 19:15:45', 'tejpratap36@gmail.co', '', '', 0, '0000-00-00 00:00:00'),
+('152364485', '', 'Tej Pratap Singh', '0', '09-12-14 14:10:52', 'tps@xyz.com', '', '', 0, '0000-00-00 00:00:00'),
+('1572962589', '', 'Shubham', '0', '18-03-15 06:24:22', 'shubham@gmail.com', '', '', 0, '0000-00-00 00:00:00'),
+('7536925174', '', 'tej', '10000', '23-10-14 14:52:31', 'tejpratap36@gmail.co', '', '', 0, '0000-00-00 00:00:00'),
+('987654321', '', 'Tej', '89500', '22-11-14 20:41:46', 'tejpratap66@gmail.co', '', '', 0, '0000-00-00 00:00:00'),
+('asd', '', 'asd', '0', '10-12-14 16:28:47', 'asd', '', '', 0, '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -162,15 +165,15 @@ CREATE TABLE IF NOT EXISTS `featured` (
 --
 
 INSERT INTO `featured` (`index`, `code`, `imageurl`, `description`, `timestamp`) VALUES
-(1, 'dd10', 'http://s26.postimg.org/skgm0mn2h/20141031_184534_730x300_image_730_300_2.jpg', '1', '0000-00-00 00:00:00'),
-(2, 'dd20', 'http://s26.postimg.org/wuv9w7s5l/20141027_112312_730x300_clp.jpg', '2', '0000-00-00 00:00:00'),
-(3, 'dd30', 'http://s26.postimg.org/cc0dr5e89/20141103_135835_nerolac_clp.jpg', '3', '0000-00-00 00:00:00'),
-(4, 'dd40', 'http://s26.postimg.org/soafgvsjt/20141031_200226_taxi4sure_300x700.jpg', '4', '0000-00-00 00:00:00'),
-(5, 'dd50', 'http://s26.postimg.org/trujsud6x/20141103_125527_730x300_big_screen_small_price.jpg', '5', '0000-00-00 00:00:00'),
-(6, 'dd60', 'http://s26.postimg.org/q9evlgksp/20141104_123954_730x300_1_2.jpg', '6', '0000-00-00 00:00:00'),
-(7, 'dd70', 'http://s26.postimg.org/4biero5s9/20140902_160713_730x300_category_landing_page.jpg', '7', '0000-00-00 00:00:00'),
-(8, 'dd80', 'http://s26.postimg.org/titarx8w9/20141103_195008_730x300_image_730_300_14.jpg', '8', '0000-00-00 00:00:00'),
-(9, 'dd90', 'http://s26.postimg.org/olfq6t6x5/20141104_115704_eveready_clp.jpg', '9', '0000-00-00 00:00:00');
+(1, 'dd10', 'images/featured/20141031_184534_730x300_image_730_300_2.jpg', '1', '0000-00-00 00:00:00'),
+(2, 'dd20', 'images/featured/20141027_112312_730x300_clp.jpg', '2', '0000-00-00 00:00:00'),
+(3, 'dd30', 'images/featured/20141103_135835_nerolac_clp.jpg', '3', '0000-00-00 00:00:00'),
+(4, 'dd40', 'images/featured/20141031_200226_taxi4sure_300x700.jpg', '4', '0000-00-00 00:00:00'),
+(5, 'dd50', 'images/featured/20141103_125527_730x300_big_screen_small_price.jpg', '5', '0000-00-00 00:00:00'),
+(6, 'dd60', 'images/featured/20141104_123954_730x300_1_2.jpg', '6', '0000-00-00 00:00:00'),
+(7, 'dd70', 'images/featured/20140902_160713_730x300_category_landing_page.jpg', '7', '0000-00-00 00:00:00'),
+(8, 'dd80', 'images/featured/20141103_195008_730x300_image_730_300_14.jpg', '8', '0000-00-00 00:00:00'),
+(9, 'dd90', 'images/featured/20141104_115704_eveready_clp.jpg', '9', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -349,14 +352,14 @@ CREATE TABLE IF NOT EXISTS `market` (
 --
 
 INSERT INTO `market` (`itemid`, `itemname`, `itemprice`, `itemdiscreption`, `itemspecification`, `itemcategory`, `itembrand`, `quantity`, `date`, `imageurl`, `itemlocation`, `tags`, `totalsold`, `timestamp`) VALUES
-('1', 'Huawei Honor Holly (Black/White)', '6999', 'A budget-friendly smartphone offering from Huawei, the Huawei Holly features a 1.3 GHz quad core processor, an 8 MP camera, and a 5 inch HD display.', 'Dual Sim, 3G, Wi-Fi, Quad Core, 1.3 GHz Processor, 1 GB RAM, 16 GB inbuilt memory, 5 inches, 720 x 1280 px display, 8 MP Camera with flash, Memory Card Supported, upto 32 GB, Android, v4.4.2', 'mobile', 'Huawei', 461, '2014-11-08', 'http://img5a.flixcart.com/image/mobile/h/q/e/huawei-holly-u19-200x200-imaeyw2cmerctjcj.jpeg', '1', '', 516, '0000-00-00 00:00:00'),
-('123456789', 'Moto E(White)', '6299', 'Motorola puts together a sharp display, the most advanced operating system, a powerful processor and dual SIM support in the form of Moto E, a mobile that is made for all.', 'Dual Sim, 3G, Wi-Fi, Dual Core, 1.2 GHz Processor, 1 GB RAM, 4 GB inbuilt memory, 4.3 inches, 540 x 960 px display, 5 MP Camera, Memory Card Supported, upto 32 GB, Android, v4.4', 'mobile', 'motorola', 471, '2014-10-28', 'http://img5a.flixcart.com/image/mobile/g/s/m/motorola-xt1022-200x200-imadvvfjcbbpzb2b.jpeg', '2', '', 308, '0000-00-00 00:00:00'),
-('1523645', 'Samsung 40H5500 102 cm (40) LED TV', '49999', 'Entertainment will never be the same once you watch your favourite movies, music concerts, sports, news and more on the Samsung 40H5500.', 'LED Display,102 cm (40),Full HD,1920 x 1080,Smart TV,3 x HDMI, 2 x USB,Refresh Rate - Clear Motion Rate - 100 Hz', 'tv', 'samsung', 1000, '2015-2-8', 'http://img5a.flixcart.com/image/television/9/j/h/samsung-40h5500-400x400-imadvvzfgbd5r53z.jpeg', '8', 'tv,black,hd,smart', 0, '0000-00-00 00:00:00'),
-('194', 'Moto X (16 GB) (Black, Without Adapter)', '17999', 'One of the first of its kind, the Moto X from Motorola brings you a unique Google experience on a budget with all the frills of a high-end device intact.', '3G, Wi-Fi, NFC, Dual Core, 1.7 GHz Processor, 2 GB RAM, 16 GB inbuilt memory, 4.7 inches, 720 x 1280 px display, 10 MP Camera with flash, Memory Card Not Supported, Android, v4.4.2', 'mobile', 'motorola', 491, '2014-11-13', 'http://img5a.flixcart.com/image/mobile/m/t/n/motorola-moto-x-200x200-imadu82xgcr8abck.jpeg', '3', '', 736, '0000-00-00 00:00:00'),
-('195', 'Asus Fonepad 7 2014 FE170CG (White, 4 GB, 3G, Voice Calling)', '7499', 'Experience unlimited entertainment and stay connected with your pals using this brilliant Asus Fonepad 7 2014 FE170CG. With the latest technology and a brilliant design, this device delivers an outstanding performance while also catering to your elite taste.', 'Dual Sim, 3G, Wi-Fi, Dual Core, 1.2 GHz Processor, 1 GB RAM, 4 GB inbuilt memory, 7 inches, 600 x 1024 px display, 2 MP Camera, Memory Card Supported, upto 64 GB, Android, v4.3', 'tablet', 'asus', 476, '2014-10-01', 'http://img5a.flixcart.com/image/tablet/f/s/g/asus-fonepad-7-2014-fe170cg-200x200-imadyfxp4skyvmtd.jpeg', '4', '', 104, '0000-00-00 00:00:00'),
-('5', 'Lenovo C260 All-in-One (CDC/ 2GB/ 500GB/ Free DOS)', '21990', '     500 GB Hard Disk     Free DOS     DVD RW Drive     Celeron Dual Core Processor     2 GB RAM     Webcam     19.5 inch HD LED Display', '', 'desktop', 'lenovo', 464, '2014-10-31', 'http://img5a.flixcart.com/image/allinone-desktop/s/u/b/lenovo-c260-200x200-imadwxyysjyhburg.jpeg', '5', '', 216, '0000-00-00 00:00:00'),
-('6', 'HP 18-5120 All-in-One (2GB/ 500GB/ Win8.1)', '28290', '     18.5 inch LCD Display     Windows 8.1     Intel HD Graphics     2 GB RAM     500 GB Hard Disk     Intel Pentium J2900 Processor', '', 'desktop', 'HP', 449, '2014-10-31', 'http://img5a.flixcart.com/image/allinone-desktop/h/9/f/hp-18-5120-200x200-imadxph6qqry44u9.jpeg', '6', '', 428, '0000-00-00 00:00:00'),
-('7', 'Apple iPhone 5S (Silver, with 16 GB)', '41985', '     Up to 56x Faster GPU than the Original iPhone     Ultra-fast Wireless     Up to 40x Faster CPU than the Original iPhone     8 MP iSight Camera with 15% Large Images Sensor and Aperture of f/2.2     Touch ID: New Fingerprint Identity Sensor     1.2 MP FaceTime HD Camera     A7-chip High Performance 64-bit Architecture and M7 Motion Co-processor     iOS 7 New Features such as Smarter Multitasking; AirDrop and Control Centre     Apple Apps: iPhoto; iMovie; Keynote; Pages and Numbers', '3G, Wi-Fi, Dual Core, 1.3 GHz Processor, 1 GB RAM, 16 GB inbuilt memory, 4 inches, 640 x 1136 px display, 8 MP Camera with flash, Memory Card Not Supported, iOS, v7.0.1', 'mobile', 'apple', 439, '2014-10-31', 'http://img6a.flixcart.com/image/mobile/4/y/h/apple-iphone-5s-200x200-imadpppch2n6hhux.jpeg', '7', '', 636, '0000-00-00 00:00:00');
+('1', 'Huawei Honor Holly (Black/White)', '6999', 'A budget-friendly smartphone offering from Huawei, the Huawei Holly features a 1.3 GHz quad core processor, an 8 MP camera, and a 5 inch HD display.', 'Dual Sim, 3G, Wi-Fi, Quad Core, 1.3 GHz Processor, 1 GB RAM, 16 GB inbuilt memory, 5 inches, 720 x 1280 px display, 8 MP Camera with flash, Memory Card Supported, upto 32 GB, Android, v4.4.2', 'mobile', 'Huawei', 461, '2014-11-08', 'images/market/huawei-holly-u19-200x200-imaeyw2cmerctjcj.jpg', '1', '', 516, '0000-00-00 00:00:00'),
+('123456789', 'Moto E(White)', '6299', 'Motorola puts together a sharp display, the most advanced operating system, a powerful processor and dual SIM support in the form of Moto E, a mobile that is made for all.', 'Dual Sim, 3G, Wi-Fi, Dual Core, 1.2 GHz Processor, 1 GB RAM, 4 GB inbuilt memory, 4.3 inches, 540 x 960 px display, 5 MP Camera, Memory Card Supported, upto 32 GB, Android, v4.4', 'mobile', 'motorola', 471, '2014-10-28', 'images/market/motorola-xt1022-200x200-imadvvfjcbbpzb2b.jpg', '2', '', 308, '0000-00-00 00:00:00'),
+('1523645', 'Samsung 40H5500 102 cm (40) LED TV', '49999', 'Entertainment will never be the same once you watch your favourite movies, music concerts, sports, news and more on the Samsung 40H5500.', 'LED Display,102 cm (40),Full HD,1920 x 1080,Smart TV,3 x HDMI, 2 x USB,Refresh Rate - Clear Motion Rate - 100 Hz', 'tv', 'samsung', 1000, '2015-2-8', 'images/market/samsung-40h5500-400x400-imadvvzfgbd5r53z.jpg', '8', 'tv,black,hd,smart', 0, '0000-00-00 00:00:00'),
+('194', 'Moto X (16 GB) (Black, Without Adapter)', '17999', 'One of the first of its kind, the Moto X from Motorola brings you a unique Google experience on a budget with all the frills of a high-end device intact.', '3G, Wi-Fi, NFC, Dual Core, 1.7 GHz Processor, 2 GB RAM, 16 GB inbuilt memory, 4.7 inches, 720 x 1280 px display, 10 MP Camera with flash, Memory Card Not Supported, Android, v4.4.2', 'mobile', 'motorola', 491, '2014-11-13', 'images/market/motorola-moto-x-200x200-imadu82xgcr8abck.jpg', '3', '', 736, '0000-00-00 00:00:00'),
+('195', 'Asus Fonepad 7 2014 FE170CG (White, 4 GB, 3G, Voice Calling)', '7499', 'Experience unlimited entertainment and stay connected with your pals using this brilliant Asus Fonepad 7 2014 FE170CG. With the latest technology and a brilliant design, this device delivers an outstanding performance while also catering to your elite taste.', 'Dual Sim, 3G, Wi-Fi, Dual Core, 1.2 GHz Processor, 1 GB RAM, 4 GB inbuilt memory, 7 inches, 600 x 1024 px display, 2 MP Camera, Memory Card Supported, upto 64 GB, Android, v4.3', 'tablet', 'asus', 476, '2014-10-01', 'images/market/asus-fonepad-7-2014-fe170cg-200x200-imadyfxp4skyvmtd.jpg', '4', '', 104, '0000-00-00 00:00:00'),
+('5', 'Lenovo C260 All-in-One (CDC/ 2GB/ 500GB/ Free DOS)', '21990', '     500 GB Hard Disk     Free DOS     DVD RW Drive     Celeron Dual Core Processor     2 GB RAM     Webcam     19.5 inch HD LED Display', '', 'desktop', 'lenovo', 464, '2014-10-31', 'images/market/lenovo-c260-200x200-imadwxyysjyhburg.jpg', '5', '', 216, '0000-00-00 00:00:00'),
+('6', 'HP 18-5120 All-in-One (2GB/ 500GB/ Win8.1)', '28290', '     18.5 inch LCD Display     Windows 8.1     Intel HD Graphics     2 GB RAM     500 GB Hard Disk     Intel Pentium J2900 Processor', '', 'desktop', 'HP', 449, '2014-10-31', 'images/market/hp-18-5120-200x200-imadxph6qqry44u9.jpg', '6', '', 428, '0000-00-00 00:00:00'),
+('7', 'Apple iPhone 5S (Silver, with 16 GB)', '41985', '     Up to 56x Faster GPU than the Original iPhone     Ultra-fast Wireless     Up to 40x Faster CPU than the Original iPhone     8 MP iSight Camera with 15% Large Images Sensor and Aperture of f/2.2     Touch ID: New Fingerprint Identity Sensor     1.2 MP FaceTime HD Camera     A7-chip High Performance 64-bit Architecture and M7 Motion Co-processor     iOS 7 New Features such as Smarter Multitasking; AirDrop and Control Centre     Apple Apps: iPhoto; iMovie; Keynote; Pages and Numbers', '3G, Wi-Fi, Dual Core, 1.3 GHz Processor, 1 GB RAM, 16 GB inbuilt memory, 4 inches, 640 x 1136 px display, 8 MP Camera with flash, Memory Card Not Supported, iOS, v7.0.1', 'mobile', 'apple', 439, '2014-10-31', 'images/market/apple-iphone-5s-200x200-imadpppch2n6hhux.jpg', '7', '', 636, '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
