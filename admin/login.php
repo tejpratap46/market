@@ -3,6 +3,10 @@ error_reporting ( 0 );
 require ("../connection.php");
 session_start ();
 
+if ($_GET['logout'] == 1) {
+	setcookie ( 'admin', '', time () + (86400 * 30 * 12), "/" );
+}
+
 $username = $_POST ['username'];
 $password = $_POST ['password'];
 

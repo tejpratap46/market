@@ -26,9 +26,10 @@ if ($id && $bankid) {
 	$toid = $payArray ['to'];
 	$balance = $payArray ['balance'];
 	if ($toid == $bankid) {
-		$query = mysql_query ( "SELECT balance FROM bank WHERE bankid = '" . $fromid . "'" ) or die ( "{\"status\":0," . "\"error\":\"" . mysql_error () . "\"}" );
+		$query = mysql_query ( "SELECT balance,username FROM bank WHERE bankid = '" . $fromid . "'" ) or die ( "{\"status\":0," . "\"error\":\"" . mysql_error () . "\"}" );
 		$info = mysql_fetch_array ( $query );
 		$frombankbalance = $info ['balance'];
+		$username = $info ['username'];
 		$frombankbalance = intval ( $frombankbalance ) - intval ( $balance );
 		$query = mysql_query ( "SELECT balance FROM bank WHERE bankid = '" . $toid . "'" ) or die ( "{\"status\":0," . "\"error\":\"" . mysql_error () . "\"}" );
 		$info = mysql_fetch_array ( $query );
@@ -37,6 +38,7 @@ if ($id && $bankid) {
 		
 		$query1 = mysql_query ( "UPDATE bank SET balance='" . $frombankbalance . "',lastupdate='" . date ( "d-m-y H:i:s" ) . "' WHERE bankid='" . $fromid . "'" ) or die ( "{\"status\":0," . "\"error\":\"" . mysql_error () . "\"}" );
 		$query1 = mysql_query ( "UPDATE bank SET balance='" . $tobankbalance . "',lastupdate='" . date ( "d-m-y H:i:s" ) . "' WHERE bankid='" . $toid . "'" ) or die ( "{\"status\":0," . "\"error\":\"" . mysql_error () . "\"}" );
+		$query = mysql_query ( "UPDATE `loyalty` SET `total_purchases`= total_purchases + 1,`total_ammount`=total_ammount+".$balance.",`points`= points + (total_purchases+total_ammount)/(3*1000) WHERE username='".$username."'" ) or die ( "{\"status\":0," . "\"error\":\"" . mysql_error () . "\"}" );
 		
 		if ($query1 && $query1) {
 			echo "\"status\":1,";
@@ -53,7 +55,7 @@ if ($id && $bankid) {
 			$qArray = mysql_fetch_array($query);
 			$gcmid = $qArray['gcmid'];
 			require('../config.php'); // has current server location
-			$notiData = file_get_contents(Config::DB_SERVER."notification/notification.send.php?gcmId=".$gcmid."&payId=".$id."&ammount=".$balance);
+			$notiData = file_get_contents(Config::DB_SERVER."notification/notification.send.php?gcmId=".$gcmid."&payId=".$id."&ammount=".$balance . "&title=Payment Completed&message=Payment completed for payment id : ". $id . ", for Amount : ". $balance);
 			echo '"notification":'.$notiData;
 		} else {
 			echo "\"status\":0,";

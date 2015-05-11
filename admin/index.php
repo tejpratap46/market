@@ -598,62 +598,62 @@ px
 			<div class="navigation">
 				<h3>Navigation</h3>
 				<ul>
-					<li><a href="#"><i class="dash"></i></a></li>
-					<li><a href="#">Dashboard</a></li>
+					<li><a href="#Dashboard"><i class="dash"></i></a></li>
+					<li><a href="#Dashboard">Dashboard</a></li>
 				</ul>
 				<ul>
-					<li><a href="#"><i class="mail"></i></a></li>
-					<li><a href="#">Emails</a></li>
+					<li><a href="#Emails"><i class="mail"></i></a></li>
+					<li><a href="#Emails">Emails</a></li>
 				</ul>
 				<ul>
-					<li><a href="#"><i class="cal"></i></a></li>
-					<li><a href="#">Calendar</a></li>
+					<li><a href="#Calendar"><i class="cal"></i></a></li>
+					<li><a href="#Calendar">Calendar</a></li>
 				</ul>
 				<ul>
-					<li><a href="#"><i class="page"></i></a></li>
-					<li><a href="#">Pages</a></li>
+					<li><a href="#Pages"><i class="page"></i></a></li>
+					<li><a href="#Pages">Pages</a></li>
 				</ul>
 			</div>
 			<div class="navigation">
 				<h3>Featured</h3>
 				<ul>
-					<li><a href="#"><i class="chat"></i></a></li>
-					<li><a href="#">Charts</a></li>
+					<li><a href="#Charts"><i class="chat"></i></a></li>
+					<li><a href="#Charts">Charts</a></li>
 				</ul>
 				<ul>
-					<li><a href="#"><i class="art"></i></a></li>
-					<li><a href="#">Articals</a></li>
+					<li><a href="#Articals"><i class="art"></i></a></li>
+					<li><a href="#Articals">Articals</a></li>
 				</ul>
 				<ul>
-					<li><a href="#"><i class="user"></i></a></li>
-					<li><a href="#">Users</a></li>
+					<li><a href="#Users"><i class="user"></i></a></li>
+					<li><a href="#Users">Users</a></li>
 				</ul>
 				<ul>
-					<li><a href="#"><i class="fat"></i></a></li>
-					<li><a href="#">Favorites</a></li>
+					<li><a href="#Favorites"><i class="fat"></i></a></li>
+					<li><a href="#Favorites">Favorites</a></li>
 				</ul>
 				<ul>
-					<li><a href="#"><i class="speed"></i></a></li>
-					<li><a href="#">Speed</a></li>
+					<li><a href="#Speed"><i class="speed"></i></a></li>
+					<li><a href="#Speed">Speed</a></li>
 				</ul>
 				<ul>
-					<li><a href="#"><i class="setting"></i></a></li>
-					<li><a href="#">Settings</a></li>
+					<li><a href="#Settings"><i class="setting"></i></a></li>
+					<li><a href="#Settings">Settings</a></li>
 				</ul>
 			</div>
 			<div class="navigation">
 				<h3>All Others</h3>
 				<ul>
-					<li><a href="#"><i class="rev"></i></a></li>
-					<li><a href="#">Revenue</a></li>
+					<li><a href="#Revenue"><i class="rev"></i></a></li>
+					<li><a href="#Revenue">Revenue</a></li>
 				</ul>
 				<ul>
-					<li><a href="#"><i class="pic"></i></a></li>
-					<li><a href="#">Pictures</a></li>
+					<li><a href="#Pictures"><i class="pic"></i></a></li>
+					<li><a href="#Pictures">Pictures</a></li>
 				</ul>
 				<ul>
-					<li><a href="#"><i class="faq"></i></a></li>
-					<li><a href="#">FAQs</a></li>
+					<li><a href="#FAQs"><i class="faq"></i></a></li>
+					<li><a href="#FAQs">FAQs</a></li>
 				</ul>
 			</div>
 		</div>
@@ -690,7 +690,7 @@ px
 							<li><a href="#">Help</a></li>
 							<li><a href="#">Activity log</a></li>
 							<li><a href="#">Report a problem</a></li>
-							<li><a href="#">Log out</a></li>
+							<li><a href="login.php?logout=1">Log out</a></li>
 						</ul>
 					</div>
 					<!---end-wrapper-dropdown-2-->
@@ -1138,167 +1138,215 @@ px
 				</div>
 				<div class="clearfix"></div>
 			</div>
+
+            <div class="calenders">
+                <div class="calender-left">
+                    <div class="alert-close"></div>
+                    <h3>Add Manager</h3>
+                    <form>
+                        <input type="text" class="text" value="Username" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Username';}">
+                        <input type="text" class="text" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}">
+                        <textarea value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message';}">Message</textarea>
+                        <input type="submit" value="Add" />
+                    </form>
+                </div>
+                <div class="calender-left">
+                <div class="alert-close"></div>
+                    <h3>Remove Manager</h3>
+                    <form>
+                        <input type="text" class="text" value="Username" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Username';}">
+                        <input type="submit" value="Remove" />
+                    </form>
+                </div>
+            </div>
+
+            <div class="clearfix"></div>
+
 			<div class="calenders">
 				<div class="calender-left">
 					<div class="alert-close"></div>
-					<h3>Calendar</h3>
+					<h3>Add Featured</h3>
 					<form>
-						<input type="text" class="text" value="Username"
-							onfocus="this.value = '';"
-							onblur="if (this.value == '') {this.value = 'Username';}"> <input
-							type="text" class="text" value="Subject"
-							onfocus="this.value = '';"
-							onblur="if (this.value == '') {this.value = 'Subject';}">
-						<textarea value="" onfocus="this.value = '';"
-							onblur="if (this.value == '') {this.value = 'Message';}">Message</textarea>
+						<input type="text" class="text" value="Username" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Username';}">
+                        <input type="text" class="text" value="Subject" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Subject';}">
+						<textarea value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message';}">Message</textarea>
 						<input type="submit" value="SEND" />
 					</form>
 				</div>
-				<div class="calender-right">
-					<div class="alert-close1"></div>
-					<h3>Calendar</h3>
-					<div class="column_right_grid calender">
-						<div class="cal1">
-							<div class="clndr">
-								<div class="clndr-controls">
-									<div class="clndr-control-button">
-										<p class="clndr-previous-button">previous</p>
-									</div>
-									<div class="month">March 2014</div>
-									<div class="clndr-control-button rightalign">
-										<p class="clndr-next-button">next</p>
-									</div>
-								</div>
-								<table class="clndr-table" border="0" cellspacing="0"
-									cellpadding="0">
-									<thead>
-										<tr class="header-days">
-											<td class="header-day">Sun</td>
-											<td class="header-day">Mon</td>
-											<td class="header-day">Tu</td>
-											<td class="header-day">We</td>
-											<td class="header-day">T</td>
-											<td class="header-day">Fr</td>
-											<td class="header-day">Su</td>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<td
-												class="day past adjacent-month last-month calendar-day-2014-02-23">
-												<div class="day-contents">23</div>
-											</td>
-											<td
-												class="day past adjacent-month last-month calendar-day-2014-02-24"><div
-													class="day-contents">24</div></td>
-											<td
-												class="day past adjacent-month last-month calendar-day-2014-02-25"><div
-													class="day-contents">25</div></td>
-											<td
-												class="day past adjacent-month last-month calendar-day-2014-02-26"><div
-													class="day-contents">26</div></td>
-											<td
-												class="day past adjacent-month last-month calendar-day-2014-02-27"><div
-													class="day-contents">27</div></td>
-											<td
-												class="day past adjacent-month last-month calendar-day-2014-02-28"><div
-													class="day-contents">28</div></td>
-											<td class="day past calendar-day-2014-03-01"><div
-													class="day-contents">1</div></td>
-										</tr>
-										<tr>
-											<td class="day past calendar-day-2014-03-02"><div
-													class="day-contents">2</div></td>
-											<td class="day past calendar-day-2014-03-03"><div
-													class="day-contents">3</div></td>
-											<td class="day past calendar-day-2014-03-04"><div
-													class="day-contents">4</div></td>
-											<td class="day past calendar-day-2014-03-05"><div
-													class="day-contents">5</div></td>
-											<td class="day past calendar-day-2014-03-06"><div
-													class="day-contents">6</div></td>
-											<td class="day past calendar-day-2014-03-07"><div
-													class="day-contents">7</div></td>
-											<td class="day past calendar-day-2014-03-08"><div
-													class="day-contents">8</div></td>
-										</tr>
-										<tr>
-											<td class="day past calendar-day-2014-03-09"><div
-													class="day-contents">9</div></td>
-											<td class="day past event calendar-day-2014-03-10"><div
-													class="day-contents">10</div></td>
-											<td class="day past event calendar-day-2014-03-11"><div
-													class="day-contents">11</div></td>
-											<td class="day past event calendar-day-2014-03-12"><div
-													class="day-contents">12</div></td>
-											<td class="day past event calendar-day-2014-03-13"><div
-													class="day-contents">13</div></td>
-											<td class="day past event calendar-day-2014-03-14"><div
-													class="day-contents">14</div></td>
-											<td class="day past calendar-day-2014-03-15"><div
-													class="day-contents">15</div></td>
-										</tr>
-										<tr>
-											<td class="day past calendar-day-2014-03-16"><div
-													class="day-contents">16</div></td>
-											<td class="day past calendar-day-2014-03-17"><div
-													class="day-contents">17</div></td>
-											<td class="day past calendar-day-2014-03-18"><div
-													class="day-contents">18</div></td>
-											<td class="day past calendar-day-2014-03-19"><div
-													class="day-contents">19</div></td>
-											<td class="day past calendar-day-2014-03-20"><div
-													class="day-contents">20</div></td>
-											<td class="day past event calendar-day-2014-03-21"><div
-													class="day-contents">21</div></td>
-											<td class="day past event calendar-day-2014-03-22"><div
-													class="day-contents">22</div></td>
-										</tr>
-										<tr>
-											<td class="day past event calendar-day-2014-03-23"><div
-													class="day-contents">23</div></td>
-											<td class="day past calendar-day-2014-03-24"><div
-													class="day-contents">24</div></td>
-											<td class="day today calendar-day-2014-03-25"><div
-													class="day-contents">25</div></td>
-											<td class="day calendar-day-2014-03-26"><div
-													class="day-contents">26</div></td>
-											<td class="day calendar-day-2014-03-27"><div
-													class="day-contents">27</div></td>
-											<td class="day calendar-day-2014-03-28"><div
-													class="day-contents">28</div></td>
-											<td class="day calendar-day-2014-03-29"><div
-													class="day-contents">29</div></td>
-										</tr>
-										<tr>
-											<td class="day calendar-day-2014-03-30"><div
-													class="day-contents">30</div></td>
-											<td class="day calendar-day-2014-03-31"><div
-													class="day-contents">31</div></td>
-											<td
-												class="day adjacent-month next-month calendar-day-2014-04-01"><div
-													class="day-contents">1</div></td>
-											<td
-												class="day adjacent-month next-month calendar-day-2014-04-02"><div
-													class="day-contents">2</div></td>
-											<td
-												class="day adjacent-month next-month calendar-day-2014-04-03"><div
-													class="day-contents">3</div></td>
-											<td
-												class="day adjacent-month next-month calendar-day-2014-04-04"><div
-													class="day-contents">4</div></td>
-											<td
-												class="day adjacent-month next-month calendar-day-2014-04-05"><div
-													class="day-contents">5</div></td>
-										</tr>
-									</tbody>
-								</table>
-							</div>
-						</div>
-					</div>
-				</div>
+
+                <div class="calender-left">
+                    <div class="alert-close"></div>
+                    <h3>Remove Featured</h3>
+                    <form>
+                        <input type="text" class="text" value="Username" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Username';}">
+                        <input type="text" class="text" value="Subject" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Subject';}">
+                        <textarea value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message';}">Message</textarea>
+                        <input type="submit" value="SEND" />
+                    </form>
+                </div>
+				
 				<div class="clearfix"></div>
 			</div>
+
+            <div class="calenders" id="Calendar">
+                <div class="calender-left">
+                    <div class="alert-close"></div>
+                    <h3>Send Push</h3>
+                    <form>
+                        <input type="text" class="text" value="Username" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Username';}">
+                        <input type="text" class="text" value="Subject" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Subject';}">
+                        <textarea value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message';}">Message</textarea>
+                        <input type="submit" value="SEND" />
+                    </form>
+                </div>
+                <div class="calender-right">
+                    <div class="alert-close1"></div>
+                    <h3>Calendar</h3>
+                    <div class="column_right_grid calender">
+                        <div class="cal1">
+                            <div class="clndr">
+                                <div class="clndr-controls">
+                                    <div class="clndr-control-button">
+                                        <p class="clndr-previous-button">previous</p>
+                                    </div>
+                                    <div class="month">March 2014</div>
+                                    <div class="clndr-control-button rightalign">
+                                        <p class="clndr-next-button">next</p>
+                                    </div>
+                                </div>
+                                <table class="clndr-table" border="0" cellspacing="0"
+                                    cellpadding="0">
+                                    <thead>
+                                        <tr class="header-days">
+                                            <td class="header-day">Sun</td>
+                                            <td class="header-day">Mon</td>
+                                            <td class="header-day">Tu</td>
+                                            <td class="header-day">We</td>
+                                            <td class="header-day">T</td>
+                                            <td class="header-day">Fr</td>
+                                            <td class="header-day">Su</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td
+                                                class="day past adjacent-month last-month calendar-day-2014-02-23">
+                                                <div class="day-contents">23</div>
+                                            </td>
+                                            <td
+                                                class="day past adjacent-month last-month calendar-day-2014-02-24"><div
+                                                    class="day-contents">24</div></td>
+                                            <td
+                                                class="day past adjacent-month last-month calendar-day-2014-02-25"><div
+                                                    class="day-contents">25</div></td>
+                                            <td
+                                                class="day past adjacent-month last-month calendar-day-2014-02-26"><div
+                                                    class="day-contents">26</div></td>
+                                            <td
+                                                class="day past adjacent-month last-month calendar-day-2014-02-27"><div
+                                                    class="day-contents">27</div></td>
+                                            <td
+                                                class="day past adjacent-month last-month calendar-day-2014-02-28"><div
+                                                    class="day-contents">28</div></td>
+                                            <td class="day past calendar-day-2014-03-01"><div
+                                                    class="day-contents">1</div></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="day past calendar-day-2014-03-02"><div
+                                                    class="day-contents">2</div></td>
+                                            <td class="day past calendar-day-2014-03-03"><div
+                                                    class="day-contents">3</div></td>
+                                            <td class="day past calendar-day-2014-03-04"><div
+                                                    class="day-contents">4</div></td>
+                                            <td class="day past calendar-day-2014-03-05"><div
+                                                    class="day-contents">5</div></td>
+                                            <td class="day past calendar-day-2014-03-06"><div
+                                                    class="day-contents">6</div></td>
+                                            <td class="day past calendar-day-2014-03-07"><div
+                                                    class="day-contents">7</div></td>
+                                            <td class="day past calendar-day-2014-03-08"><div
+                                                    class="day-contents">8</div></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="day past calendar-day-2014-03-09"><div
+                                                    class="day-contents">9</div></td>
+                                            <td class="day past event calendar-day-2014-03-10"><div
+                                                    class="day-contents">10</div></td>
+                                            <td class="day past event calendar-day-2014-03-11"><div
+                                                    class="day-contents">11</div></td>
+                                            <td class="day past event calendar-day-2014-03-12"><div
+                                                    class="day-contents">12</div></td>
+                                            <td class="day past event calendar-day-2014-03-13"><div
+                                                    class="day-contents">13</div></td>
+                                            <td class="day past event calendar-day-2014-03-14"><div
+                                                    class="day-contents">14</div></td>
+                                            <td class="day past calendar-day-2014-03-15"><div
+                                                    class="day-contents">15</div></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="day past calendar-day-2014-03-16"><div
+                                                    class="day-contents">16</div></td>
+                                            <td class="day past calendar-day-2014-03-17"><div
+                                                    class="day-contents">17</div></td>
+                                            <td class="day past calendar-day-2014-03-18"><div
+                                                    class="day-contents">18</div></td>
+                                            <td class="day past calendar-day-2014-03-19"><div
+                                                    class="day-contents">19</div></td>
+                                            <td class="day past calendar-day-2014-03-20"><div
+                                                    class="day-contents">20</div></td>
+                                            <td class="day past event calendar-day-2014-03-21"><div
+                                                    class="day-contents">21</div></td>
+                                            <td class="day past event calendar-day-2014-03-22"><div
+                                                    class="day-contents">22</div></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="day past event calendar-day-2014-03-23"><div
+                                                    class="day-contents">23</div></td>
+                                            <td class="day past calendar-day-2014-03-24"><div
+                                                    class="day-contents">24</div></td>
+                                            <td class="day today calendar-day-2014-03-25"><div
+                                                    class="day-contents">25</div></td>
+                                            <td class="day calendar-day-2014-03-26"><div
+                                                    class="day-contents">26</div></td>
+                                            <td class="day calendar-day-2014-03-27"><div
+                                                    class="day-contents">27</div></td>
+                                            <td class="day calendar-day-2014-03-28"><div
+                                                    class="day-contents">28</div></td>
+                                            <td class="day calendar-day-2014-03-29"><div
+                                                    class="day-contents">29</div></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="day calendar-day-2014-03-30"><div
+                                                    class="day-contents">30</div></td>
+                                            <td class="day calendar-day-2014-03-31"><div
+                                                    class="day-contents">31</div></td>
+                                            <td
+                                                class="day adjacent-month next-month calendar-day-2014-04-01"><div
+                                                    class="day-contents">1</div></td>
+                                            <td
+                                                class="day adjacent-month next-month calendar-day-2014-04-02"><div
+                                                    class="day-contents">2</div></td>
+                                            <td
+                                                class="day adjacent-month next-month calendar-day-2014-04-03"><div
+                                                    class="day-contents">3</div></td>
+                                            <td
+                                                class="day adjacent-month next-month calendar-day-2014-04-04"><div
+                                                    class="day-contents">4</div></td>
+                                            <td
+                                                class="day adjacent-month next-month calendar-day-2014-04-05"><div
+                                                    class="day-contents">5</div></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="clearfix"></div>
+
 			<div class="cd-tabs">
 				<nav>
 					<ul class="cd-tabs-navigation">

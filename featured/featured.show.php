@@ -14,7 +14,7 @@ if (! empty ( $apikey )) {
 	die ( "{\"status\":0," . "\"error\":\"invalid apikey\"}" );
 }
 
-if (code) {
+if ($code) {
 	echo "{";
 	$query = mysql_query ( "SELECT * FROM coupon WHERE code = '" . $code . "'" ) or die ( "{\"status\":0," . "\"error\":\"" . mysql_error () . "\"}" );
 	echo "\"status\":1,";

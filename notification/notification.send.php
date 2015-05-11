@@ -1,5 +1,5 @@
 <?php
-if ($_GET ['gcmId'] && $_GET['payId'] && $_GET['ammount']) {
+if ($_GET ['gcmId'] && $_GET['title'] && $_GET['message']) {
 	// API access key from Google API's Console
 	define ( 'API_ACCESS_KEY', 'AIzaSyCxTsUP3saX-BUPA2KNQKdsyMmUSGwYfQI' );
 	$registrationIds = array (
@@ -7,10 +7,10 @@ if ($_GET ['gcmId'] && $_GET['payId'] && $_GET['ammount']) {
 	);
 	// prep the bundle
 	$msg = array (
-			'message' => 'Payment Completed',
-			'title' => 'Payment Completed for Pay Id '.$_GET['payId'].' For Rs. '.$_GET['ammount'],
-			'payid' => $_GET['payId'],
-			'ammount' => $_GET['ammount'],
+			'message' => $_GET['message'] ,
+			'title' => $_GET['title'] ,
+			'payid' => $_GET['payId'] ,
+			'ammount' => $_GET['ammount'] ,
 			'vibrate' => true,
 			'sound' => true
 	);

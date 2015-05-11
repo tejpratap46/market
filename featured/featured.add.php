@@ -4,6 +4,8 @@ require ("../connection.php");
 
 $apikey = $_GET ['apikey'];
 $code = $_GET ['code'];
+$imageurl = $_GET['imageurl'];
+$description = $_GET['description'];
 
 if (! empty ( $apikey )) {
 	$api = mysql_query ( "SELECT * FROM apikey WHERE api_key = '" . $apikey . "'" ) or die ( "{\"status\":0," . "\"error\":\"" . mysql_error () . "\"}" );
@@ -13,20 +15,12 @@ if (! empty ( $apikey )) {
 } else {
 	die ( "{\"status\":0," . "\"error\":\"invalid apikey\"}" );
 }
-if ($code) {
-	$query = mysql_query ( "DELETE FROM featured WHERE code = '" . $code . "'" ) or die ( "{\"status\":0," . "\"error\":\"" . mysql_error () . "\"}" );
-	if ($query) {
-		echo "{";
-		echo "\"status\":1,";
-		echo "\"customer\":\"deleted\"";
-		echo "}";
-	} else {
-		echo "{";
-		echo "\"status\":0,";
-		echo "\"error\":\"enter code\"";
-		echo "}";
-	}
-}else{
-	die ( "{\"status\":0," . "\"error\":\"enter code\"}" );
+
+if ($code && $imageurl && $description) {
+	echo "{";
+	$query = mysql_query ( "SELECT * FROM coupon WHERE code = '" . $code . "'" ) or die ( "{\"status\":0," . "\"error\":\"" . mysql_error () . "\"}" );
+	
+} else {
+	die ( "{\"status\":0," . "\"error\":\"enter code, imageurl, description\"}" );
 }
 ?>
