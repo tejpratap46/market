@@ -36,7 +36,7 @@ if (mysql_num_rows($fromquery) > 0 || mysql_num_rows($fromquery) > 0) {
 	$query1 = mysql_query ( "UPDATE bank SET balance=balance + '" . $balance . "',lastupdate='" . date ( "d-m-y H:i:s" ) . "' WHERE bankid='" . $tobankid . "'" ) or die ( "{\"status\":0," . "\"error\":\"" . mysql_error () . "\"}" );
 	$payId = newRandomId();
 	$query = mysql_query ( "INSERT INTO `payment_completed`(`id`, `fromid`, `toid`, `balance`, `listid`) VALUES ('" . $payId . "','$frombankid','$tobankid','$balance','$listid')" ) or die ( "{\"status\":0," . "\"error\":\"" . mysql_error () . "\"}" );
-	$query = mysql_query ( "UPDATE `loyalty` SET `total_purchases`= total_purchases + 1,`total_ammount`=total_ammount+".$balance.",`points`= points + (total_purchases+total_ammount)/(3*1000) WHERE username='".$username."'" ) or die ( "{\"status\":0," . "\"error\":\"" . mysql_error () . "\"}" );
+	$query = mysql_query ( "UPDATE `loyalty` SET `total_purchases`= total_purchases + 1,`total_ammount`=total_ammount+".$balance.",`points`= points + 0.005*".$balance." WHERE username='".$username."'" ) or die ( "{\"status\":0," . "\"error\":\"" . mysql_error () . "\"}" );
 	echo "{";
 	if ($query1 && $query1) {
 		echo "\"status\":1,";

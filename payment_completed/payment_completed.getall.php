@@ -1,6 +1,7 @@
 <?php
 error_reporting ( 0 );
 require ("../connection.php");
+require ("pagination.php");
 
 $apikey = $_GET ['apikey'];
 
@@ -14,7 +15,7 @@ if (! empty ( $apikey )) {
 }
 
 echo "{";
-$query = mysql_query ( "SELECT * FROM `payment_completed` WHERE 1" ) or die ( "{\"status\":0," . "\"error\":\"" . mysql_error () . "\"}" );
+$query = mysql_query ( "SELECT * FROM `payment_completed` LIMIT $start,$limit" ) or die ( "{\"status\":0," . "\"error\":\"" . mysql_error () . "\"}" );
 echo "\"status\":1,";
 echo "\"results\":" . mysql_num_rows ( $query ) . ",";
 echo "\"customers\":[";

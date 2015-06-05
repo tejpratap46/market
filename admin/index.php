@@ -11,42 +11,42 @@ if (!isset($_COOKIE['admin'])) {
     error_reporting ( 0 );
     require ("../connection.php");
     require ('../config.php');
-    $newFeedbacksArray = json_decode(file_get_contents(Config::DB_SERVER."query.php?apikey=tejpratap&query=SELECT+COUNT(*)+FROM+feedback+WHERE+seen=0"));
-    $newFeedbacks = $newFeedbacksArray[0][0];
-    $totalProductsArray = json_decode(file_get_contents(Config::DB_SERVER."query.php?apikey=tejpratap&query=SELECT+COUNT(*)+FROM+market+WHERE+1"));
-    $totalProducts = $totalProductsArray[0][0];
-    $totalCustomersArray = json_decode(file_get_contents(Config::DB_SERVER."query.php?apikey=tejpratap&query=SELECT+COUNT(*)+FROM+customer+WHERE+1"));
-    $totalCustomers = $totalCustomersArray[0][0];
-    $totalNewCustomersArray = json_decode(file_get_contents(Config::DB_SERVER."query.php?query=SELECT+COUNT(username)+FROM+customer+WHERE+timestamp+LIKE+'%".(date ("y-m-d"))."%'&apikey=tejpratap"));
-    $totalNewCustomers = $totalNewCustomersArray[0][0];
-    $totalNewProductsArray = json_decode(file_get_contents(Config::DB_SERVER."query.php?query=SELECT+COUNT(itemid)+FROM+market+WHERE+timestamp+LIKE+'%".(date ("y-m-d"))."%'&apikey=tejpratap"));
-    $totalNewProducts = $totalNewProductsArray[0][0];
-    $totalNewPaymentsArray = json_decode(file_get_contents(Config::DB_SERVER."query.php?query=SELECT+SUM(balance)+FROM+payment_completed+WHERE+timestamp+LIKE+%27%25".(date ("y-m-d"))."%25%27&apikey=tejpratap"));
-    $totalNewPayments = $totalNewPaymentsArray[0][0];
-    $totalNewPendingPaymentsArray = json_decode(file_get_contents(Config::DB_SERVER."query.php?query=SELECT+SUM(balance)+FROM+payment+WHERE+timestamp+LIKE+%27%25".(date ("y-m-d"))."%25%27&apikey=tejpratap"));
-    $totalNewPendingPayments = $totalNewPendingPaymentsArray[0][0];
+    // $newFeedbacksArray = json_decode(file_get_contents(Config::DB_SERVER."query.php?apikey=tejpratap&query=SELECT+COUNT(*)+FROM+feedback+WHERE+seen=0"));
+    // $newFeedbacks = $newFeedbacksArray[0][0];
+    // $totalProductsArray = json_decode(file_get_contents(Config::DB_SERVER."query.php?apikey=tejpratap&query=SELECT+COUNT(*)+FROM+market+WHERE+1"));
+    // $totalProducts = $totalProductsArray[0][0];
+    // $totalCustomersArray = json_decode(file_get_contents(Config::DB_SERVER."query.php?apikey=tejpratap&query=SELECT+COUNT(*)+FROM+customer+WHERE+1"));
+    // $totalCustomers = $totalCustomersArray[0][0];
+    // $totalNewCustomersArray = json_decode(file_get_contents(Config::DB_SERVER."query.php?query=SELECT+COUNT(username)+FROM+customer+WHERE+timestamp+LIKE+'%".(date ("y-m-d"))."%'&apikey=tejpratap"));
+    // $totalNewCustomers = $totalNewCustomersArray[0][0];
+    // $totalNewProductsArray = json_decode(file_get_contents(Config::DB_SERVER."query.php?query=SELECT+COUNT(itemid)+FROM+market+WHERE+timestamp+LIKE+'%".(date ("y-m-d"))."%'&apikey=tejpratap"));
+    // $totalNewProducts = $totalNewProductsArray[0][0];
+    // $totalNewPaymentsArray = json_decode(file_get_contents(Config::DB_SERVER."query.php?query=SELECT+SUM(balance)+FROM+payment_completed+WHERE+timestamp+LIKE+%27%25".(date ("y-m-d"))."%25%27&apikey=tejpratap"));
+    // $totalNewPayments = $totalNewPaymentsArray[0][0];
+    // $totalNewPendingPaymentsArray = json_decode(file_get_contents(Config::DB_SERVER."query.php?query=SELECT+SUM(balance)+FROM+payment+WHERE+timestamp+LIKE+%27%25".(date ("y-m-d"))."%25%27&apikey=tejpratap"));
+    // $totalNewPendingPayments = $totalNewPendingPaymentsArray[0][0];
 
-    if (strlen($newFeedbacks) < 1) {
-        $newFeedbacks = "0";
-    }
-    if (strlen($totalProducts) < 1) {
-        $totalProducts = "0";
-    }
-    if (strlen($totalCustomers) < 1) {
-        $totalCustomers = "0";
-    }
-    if (strlen($totalNewCustomers) < 1) {
-        $totalNewCustomers = "0";
-    }
-    if (strlen($totalNewProducts) < 1) {
-        $totalNewProducts = "0";
-    }
-    if (strlen($totalNewPayments) < 1) {
-        $totalNewPayments = "0";
-    }
-    if (strlen($totalNewPendingPayments) < 1) {
-        $totalNewPendingPayments = "0";
-    }
+    // if (strlen($newFeedbacks) < 1) {
+    //     $newFeedbacks = "0";
+    // }
+    // if (strlen($totalProducts) < 1) {
+    //     $totalProducts = "0";
+    // }
+    // if (strlen($totalCustomers) < 1) {
+    //     $totalCustomers = "0";
+    // }
+    // if (strlen($totalNewCustomers) < 1) {
+    //     $totalNewCustomers = "0";
+    // }
+    // if (strlen($totalNewProducts) < 1) {
+    //     $totalNewProducts = "0";
+    // }
+    // if (strlen($totalNewPayments) < 1) {
+    //     $totalNewPayments = "0";
+    // }
+    // if (strlen($totalNewPendingPayments) < 1) {
+    //     $totalNewPendingPayments = "0";
+    // }
 }
 ?>
 <!DOCTYPE html>
@@ -73,7 +73,7 @@ if (!isset($_COOKIE['admin'])) {
 		$('.calender-left').fadeOut('slow', function(c){
 	  		$('.calender-left').remove();
 		});
-	});	  
+	});
 });
 </script>
 <script>$(document).ready(function(c) {
@@ -81,7 +81,7 @@ if (!isset($_COOKIE['admin'])) {
 		$('.calender-right').fadeOut('slow', function(c){
 	  		$('.calender-right').remove();
 		});
-	});	  
+	});
 });
 </script>
 <script>$(document).ready(function(c) {
@@ -89,7 +89,7 @@ if (!isset($_COOKIE['admin'])) {
 		$('.graph').fadeOut('slow', function(c){
 	  		$('.graph').remove();
 		});
-	});	  
+	});
 });
 </script>
 <script>$(document).ready(function(c) {
@@ -97,7 +97,7 @@ if (!isset($_COOKIE['admin'])) {
 		$('.site-report').fadeOut('slow', function(c){
 	  		$('.site-report').remove();
 		});
-	});	  
+	});
 });
 </script>
 <script>$(document).ready(function(c) {
@@ -105,7 +105,7 @@ if (!isset($_COOKIE['admin'])) {
 		$('.total-sale').fadeOut('slow', function(c){
 	  		$('.total-sale').remove();
 		});
-	});	  
+	});
 });
 </script>
 <script>$(document).ready(function(c) {
@@ -113,7 +113,7 @@ if (!isset($_COOKIE['admin'])) {
 		$('.total-sale').fadeOut('slow', function(c){
 	  		$('.total-sale').remove();
 		});
-	});	  
+	});
 });
 </script>
 <script>$(document).ready(function(c) {
@@ -121,7 +121,7 @@ if (!isset($_COOKIE['admin'])) {
 		$('.user-trends').fadeOut('slow', function(c){
 	  		$('.user-trends').remove();
 		});
-	});	  
+	});
 });
 </script>
 <script>$(document).ready(function(c) {
@@ -129,7 +129,7 @@ if (!isset($_COOKIE['admin'])) {
 		$('.world-map').fadeOut('slow', function(c){
 	  		$('.world-map').remove();
 		});
-	});	  
+	});
 });
 </script>
 <!--Calender -->
@@ -144,7 +144,7 @@ if (!isset($_COOKIE['admin'])) {
 <script type="text/javascript">
 			    $(document).ready(function () {
 			        $('#horizontalTab,#horizontalTab1,#horizontalTab2').easyResponsiveTabs({
-			            type: 'default', //Types: default, vertical, accordion           
+			            type: 'default', //Types: default, vertical, accordion
 			            width: 'auto', //auto or any width like 600px
 			            fit: true   // 100% fit in a container
 			        });
@@ -205,16 +205,16 @@ keyframes am-moving-dashes { 100% {
 {
 stroke-opacity
 :
- 
+
 0;
 stroke-width
 :
- 
+
 50
 px
 ;
 
-                
+
 }
 }
 @
@@ -227,16 +227,16 @@ keyframes am-pulsating { 0% {
 {
 stroke-opacity
 :
- 
+
 0;
 stroke-width
 :
- 
+
 50
 px
 ;
 
-                
+
 }
 }
 .amcharts-graph-column-front {
@@ -270,12 +270,12 @@ px
 {
 stroke-dashoffset
 :
- 
+
 0
 px
 ;
 
-                
+
 }
 }
 @
@@ -663,9 +663,9 @@ px
 					<ul>
 						<li><a href="index.php"><i class="refresh"></i></a></li>
 						<li class="messages"><a href="#"><i class="msgs"></i><span
-								class="red"><?php echo $newFeedbacks;?></span></a></li>
+								class="red" id="newFeedbacks"></span></a></li>
 						<li class="notifications"><a href="#"><i class="bell"></i><span
-								class="blue">9</span></a></li>
+								class="blue"></span></a></li>
 					</ul>
 				</div>
 				<div class="search">
@@ -703,22 +703,22 @@ px
 							DropDown.prototype = {
 								initEvents : function() {
 									var obj = this;
-				
+
 									obj.dd.on('click', function(event){
 										$(this).toggleClass('active');
 										event.stopPropagation();
-									});	
+									});
 								}
 							}
 							$(function() {
-				
+
 								var dd = new DropDown( $('#dd') );
-				
+
 								$(document).click(function() {
 									// all dropdowns
 									$('.wrapper-dropdown-2').removeClass('active');
 								});
-				
+
 							});
 			</script>
 					<div class="clearfix"></div>
@@ -734,8 +734,8 @@ px
 					<h4>
 						TATAL <strong>CUSTOMERS</strong>
 					</h4>
-					<h3><?php echo $totalCustomers;?></h3>
-					<p><?php echo $totalNewCustomers;?> New Today</p>
+					<h3 id="totalCustomers">Loading..</h3>
+					<p id="totalNewCustomers">Loading..</p>
 					<a href="#"><i class="go"></i></a>
 					<div class="clearfix"></div>
 				</div>
@@ -743,8 +743,8 @@ px
 					<h4>
 						TOTAL <strong>SALE TODAY</strong>
 					</h4>
-					<h3><?php echo $totalNewPayments;?></h3>
-					<p><?php echo $totalNewPendingPayments;?> New Pending Today</p>
+					<h3 id="totalNewPayments">Loading..</h3>
+					<p id="totalNewPendingPayments">Loading..</p>
 					<a href="#"><i class="go"></i></a>
 					<div class="clearfix"></div>
 				</div>
@@ -752,8 +752,8 @@ px
 					<h4>
 						TOTAL <strong>PRODUCTS</strong>
 					</h4>
-					<h3><?php echo $totalProducts;?></h3>
-					<p><?php echo $totalNewProducts;?> New Today</p>
+					<h3 id="totalProducts">Loading..</h3>
+					<p id="totalNewProducts">Loading..</p>
 					<a href="#"><i class="go"></i></a>
 					<div class="clearfix"></div>
 				</div>
@@ -1079,21 +1079,21 @@ px
 					<script>
 						 $(function () {
 					        $('#recipes').highcharts({
-					            
+
 					            title: {
 					                text: ' ',
 					                style: {
 						                color: 'red',
 						                fontWeight: '100'
-						               
+
 						            }
 					            },
-					           
+
 					           xAxis: {
 						            categories: ['AUG', 'SEP', 'OCT', 'NOV', 'DEC', 'JAN'],
-									
+
 						        },
-					            
+
 					            yAxis: {
 						             labels: {
 					                    formatter: function() {
@@ -1110,18 +1110,18 @@ px
 						                color: '#ec407a'
 						            }
 						        },
-					             
+
 					            legend: {
 						            enabled: false
 						        },
-					            
+
 					            tooltip: {
 					               shared: true,
                					   pointFormat: '{point.x} k',
                					    backgroundColor: '#fff'
 					            },
-					            
-					            series: [{            
+
+					            series: [{
 					                data: [100, 200, 300, 6400, 500],
 					                pointStart: 100
 					            }]
@@ -1147,7 +1147,7 @@ px
                         <input type="text" class="text" value="Username" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Username';}">
                         <input type="text" class="text" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}">
                         <textarea value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message';}">Message</textarea>
-                        <input type="submit" value="Add" />
+                        <input type="button" value="Add" />
                     </form>
                 </div>
                 <div class="calender-left">
@@ -1155,7 +1155,7 @@ px
                     <h3>Remove Manager</h3>
                     <form>
                         <input type="text" class="text" value="Username" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Username';}">
-                        <input type="submit" value="Remove" />
+                        <input type="button" value="Remove" />
                     </form>
                 </div>
             </div>
@@ -1169,8 +1169,8 @@ px
 					<form>
 						<input type="text" class="text" value="Username" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Username';}">
                         <input type="text" class="text" value="Subject" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Subject';}">
-						<textarea value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message';}">Message</textarea>
-						<input type="submit" value="SEND" />
+						<textarea value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message';}">Add</textarea>
+						<input type="button" value="Add" />
 					</form>
 				</div>
 
@@ -1180,11 +1180,11 @@ px
                     <form>
                         <input type="text" class="text" value="Username" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Username';}">
                         <input type="text" class="text" value="Subject" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Subject';}">
-                        <textarea value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message';}">Message</textarea>
-                        <input type="submit" value="SEND" />
+                        <textarea value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message';}">Remove</textarea>
+                        <input type="button" value="Remove" />
                     </form>
                 </div>
-				
+
 				<div class="clearfix"></div>
 			</div>
 
@@ -1196,7 +1196,7 @@ px
                         <input type="text" class="text" value="Username" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Username';}">
                         <input type="text" class="text" value="Subject" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Subject';}">
                         <textarea value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message';}">Message</textarea>
-                        <input type="submit" value="SEND" />
+                        <input type="button" value="SEND" />
                     </form>
                 </div>
                 <div class="calender-right">
@@ -1532,5 +1532,37 @@ px
 			</p>
 		</div>
 	</div>
+  <script type="text/javascript">
+      jQuery(document).ready(function($) {
+          $.getJSON('<?php echo Config::DB_SERVER."query.php?apikey=tejpratap&query=SELECT+COUNT(*)+FROM+feedback+WHERE+seen=0" ?>', {param1: 'value1'}, function(json, textStatus) {
+                $('#newFeedbacks').text(json[0][0]);
+          });
+      });
+      jQuery(document).ready(function($) {
+          $.getJSON('<?php echo Config::DB_SERVER."query.php?apikey=tejpratap&query=SELECT+COUNT(*)+FROM+market+WHERE+1" ?>', {param1: 'value1'}, function(json, textStatus) {
+                $('#totalProducts').text(json[0][0]);
+          });
+
+          $.getJSON('<?php echo Config::DB_SERVER."query.php?apikey=tejpratap&query=SELECT+COUNT(*)+FROM+customer+WHERE+1" ?>', {param1: 'value1'}, function(json, textStatus) {
+                $('#totalCustomers').text(json[0][0]);
+          });
+
+          $.getJSON('<?php echo Config::DB_SERVER."query.php?query=SELECT+COUNT(username)+FROM+customer+WHERE+timestamp+LIKE+\'%".(date ("y-m-d"))."%\'&apikey=tejpratap" ?>', {param1: 'value1'}, function(json, textStatus) {
+                $('#totalNewCustomers').text(json[0][0] + ' New Today');
+          });
+
+          $.getJSON('<?php echo Config::DB_SERVER."query.php?query=SELECT+COUNT(itemid)+FROM+market+WHERE+timestamp+LIKE+\'%".(date ("y-m-d"))."%\'&apikey=tejpratap" ?>', {param1: 'value1'}, function(json, textStatus) {
+                $('#totalNewProducts').text(json[0][0] + ' New Today');
+          });
+
+          $.getJSON('<?php echo Config::DB_SERVER."query.php?query=SELECT+SUM(balance)+FROM+payment_completed+WHERE+timestamp+LIKE+%27%25".(date ("y-m-d"))."%25%27&apikey=tejpratap" ?>', {param1: 'value1'}, function(json, textStatus) {
+                $('#totalNewPayments').text(json[0][0]);
+          });
+
+          $.getJSON('<?php echo Config::DB_SERVER."query.php?query=SELECT+SUM(balance)+FROM+payment+WHERE+timestamp+LIKE+%27%25".(date ("y-m-d"))."%25%27&apikey=tejpratap" ?>', {param1: 'value1'}, function(json, textStatus) {
+                $('#totalNewPendingPayments').text(json[0][0] + ' Pending');
+          });
+      });
+  </script>
 </body>
 </html>

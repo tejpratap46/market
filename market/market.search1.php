@@ -32,20 +32,32 @@ for($i = 0; $i < mysql_num_rows ( $query ); $i ++) {
 		echo "\"itemid\":\"" . $info ['itemid'] . "\",";
 		echo "\"itemname\":\"" . $info ['itemname'] . "\",";
 		echo "\"itemprice\":\"" . $info ['itemprice'] . "\",";
+		echo "\"itemdiscreption\":\"" . $info ['itemdiscreption'] . "\",";
+		echo "\"itemspecification\":\"" . $info ['itemspecification'] . "\",";
 		echo "\"itemcategory\":\"" . $info ['itemcategory'] . "\",";
 		echo "\"itembrand\":\"" . $info ['itembrand'] . "\",";
 		echo "\"quantity\":\"" . $info ['quantity'] . "\",";
-		echo "\"imageurl\":\"" . $info ['imageurl'] . "\"";
+		echo "\"imageurl\":\"" . $info ['imageurl'] . "\",";
+		echo "\"itemlocation\":\"" . $info ['itemlocation'] . "\",";
+		echo "\"tags\":\"" . $info ['tags'] . "\",";
+		echo "\"date\":\"" . $info ['date'] . "\",";
+		echo "\"totalsold\":\"" . $info ['totalsold'] . "\"";
 		echo "}";
 	} else {
 		echo "{";
 		echo "\"itemid\":\"" . $info ['itemid'] . "\",";
 		echo "\"itemname\":\"" . $info ['itemname'] . "\",";
 		echo "\"itemprice\":\"" . $info ['itemprice'] . "\",";
+		echo "\"itemdiscreption\":\"" . $info ['itemdiscreption'] . "\",";
+		echo "\"itemspecification\":\"" . $info ['itemspecification'] . "\",";
 		echo "\"itemcategory\":\"" . $info ['itemcategory'] . "\",";
 		echo "\"itembrand\":\"" . $info ['itembrand'] . "\",";
 		echo "\"quantity\":\"" . $info ['quantity'] . "\",";
-		echo "\"imageurl\":\"" . $info ['imageurl'] . "\"";
+		echo "\"imageurl\":\"" . $info ['imageurl'] . "\",";
+		echo "\"itemlocation\":\"" . $info ['itemlocation'] . "\",";
+		echo "\"tags\":\"" . $info ['tags'] . "\",";
+		echo "\"date\":\"" . $info ['date'] . "\",";
+		echo "\"totalsold\":\"" . $info ['totalsold'] . "\"";
 		echo "},";
 	}
 }

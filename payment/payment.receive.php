@@ -38,7 +38,7 @@ if ($id && $bankid) {
 		
 		$query1 = mysql_query ( "UPDATE bank SET balance='" . $frombankbalance . "',lastupdate='" . date ( "d-m-y H:i:s" ) . "' WHERE bankid='" . $fromid . "'" ) or die ( "{\"status\":0," . "\"error\":\"" . mysql_error () . "\"}" );
 		$query1 = mysql_query ( "UPDATE bank SET balance='" . $tobankbalance . "',lastupdate='" . date ( "d-m-y H:i:s" ) . "' WHERE bankid='" . $toid . "'" ) or die ( "{\"status\":0," . "\"error\":\"" . mysql_error () . "\"}" );
-		$query = mysql_query ( "UPDATE `loyalty` SET `total_purchases`= total_purchases + 1,`total_ammount`=total_ammount+".$balance.",`points`= points + (total_purchases+total_ammount)/(3*1000) WHERE username='".$username."'" ) or die ( "{\"status\":0," . "\"error\":\"" . mysql_error () . "\"}" );
+		$query = mysql_query ( "UPDATE `loyalty` SET `total_purchases`= total_purchases + 1,`total_ammount`=total_ammount+".$balance.",`points`= points + 0.005*".$balance." WHERE username='".$username."'" ) or die ( "{\"status\":0," . "\"error\":\"" . mysql_error () . "\"}" );
 		
 		if ($query1 && $query1) {
 			echo "\"status\":1,";

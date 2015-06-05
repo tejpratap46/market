@@ -18,7 +18,7 @@ if (! empty ( $apikey )) {
 
 if ($code && $imageurl && $description) {
 	echo "{";
-	$query = mysql_query ( "SELECT * FROM coupon WHERE code = '" . $code . "'" ) or die ( "{\"status\":0," . "\"error\":\"" . mysql_error () . "\"}" );
+	$query = mysql_query ( "INSERT INTO `featured`(`code`, `imageurl`, `description`) VALUES ('$code', '$imageurl', '$description')" ) or die ( "{\"status\":0," . "\"error\":\"" . mysql_error () . "\"}" );
 	
 } else {
 	die ( "{\"status\":0," . "\"error\":\"enter code, imageurl, description\"}" );

@@ -109,7 +109,8 @@ for($i = 0; $i < mysql_num_rows ( $query ); $i ++) {
 		echo "\"imageurl\":\"" . $info ['imageurl'] . "\",";
 		echo "\"itemlocation\":\"" . $info ['itemlocation'] . "\",";
 		echo "\"tags\":\"" . $info ['tags'] . "\",";
-		echo "\"date\":\"" . $info ['date'] . "\"";
+		echo "\"date\":\"" . $info ['date'] . "\",";
+		echo "\"totalsold\":\"" . $info ['totalsold'] . "\"";
 		echo "}";
 	} else {
 		echo "{";
@@ -124,7 +125,8 @@ for($i = 0; $i < mysql_num_rows ( $query ); $i ++) {
 		echo "\"imageurl\":\"" . $info ['imageurl'] . "\",";
 		echo "\"itemlocation\":\"" . $info ['itemlocation'] . "\",";
 		echo "\"tags\":\"" . $info ['tags'] . "\",";
-		echo "\"date\":\"" . $info ['date'] . "\"";
+		echo "\"date\":\"" . $info ['date'] . "\",";
+		echo "\"totalsold\":\"" . $info ['totalsold'] . "\"";s
 		echo "},";
 	}
 }

@@ -2385,11 +2385,11 @@ span.mail a:hover {
 }
 
 .notification {
-	width: 100%;
+	width: 200px;
 	height: auto;
 	position: fixed;
-	/*left: 50%;*/
-	/*margin-left: -100px;*/
+	left: 50%;
+	margin-left: -100px;
 	bottom: 10px;
 	background-color: #383838;
 	color: #F0F0F0;
